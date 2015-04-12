@@ -1,0 +1,66 @@
+#general #transaccional #principal #asignaturas {
+	position: relative;
+	width: 380px;
+	height:440px;
+	overflow: auto;
+}
+#general #transaccional #principal #asignaturas .asignaturas {
+	font-size: 17px;
+	color: #7A7A7A;
+	margin-top: 10px;
+}
+#general #transaccional #principal #asignaturas .asignaturas:hover {
+	cursor:pointer;
+}
+
+#general #transaccional #principal #asignaturas .secciones {
+	font-size: 15px;
+	color: #7A7A7A;
+	visibility:hidden;
+	height:0px;
+}
+#general #transaccional #principal #horarios {
+	position: absolute;
+	background:#FFF;
+	height: 420px;
+	width: 300px;
+	left: 390px;
+	top: 40px;
+	padding-left:10px;
+	padding-right:10px;
+	padding-top:10px;
+	border: 2px solid #AAA;
+	border-radius:15px;
+	overflow: auto;
+}
+
+#general #transaccional #principal #horarios h1{
+	color:#651FFF;
+	font-weight:normal;
+	font-size:19px;
+	margin-bottom:3px;
+	margin-top:3px;
+}
+#general #transaccional #principal #horarios h2{
+	color:#651FFF;
+	font-weight:normal;
+	font-size:18px;
+	margin-bottom:5px;
+	margin-top:5px;
+}
+
+#general #transaccional #principal #horarios h3{
+	color:#7A7A7A;
+	font-weight:normal;
+	font-size:16px;
+	margin-bottom:5px;
+	margin-top:15px;
+}
+
+#general #transaccional #principal #horarios p{
+	color:#7A7A7A;
+	font-weight:normal;
+	font-size:15px;
+	margin-bottom:0px;
+	margin-top:5px;
+}

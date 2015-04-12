@@ -1,0 +1,269 @@
+@font-face {
+    font-family: Maximus;
+    src: url('Maximus.eot');
+	src: url('Maximus.ttf') format('truetype');
+    font-style: normal;
+}
+
+body {
+	background: #07001A url(../imagenes/fondo_body.png) repeat;
+	font-family:Maximus, Arial;
+}
+#general {
+	background-color: #FFF;
+	position: relative;
+	height: 600px;
+	width: 960px;
+	margin-right: auto;
+	margin-left: auto;
+}
+#general #identidad {
+	position: absolute;
+	height: 100%;
+	width: 240px;
+	left: 0px;
+	top: 0px;
+	margin: 0px;	
+	background: #523395 url(../imagenes/fondo_identidad.png) repeat-x;	
+}
+#general #identidad #logo {
+	background-image: url(../imagenes/logo.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 120px;
+	width: 195px;
+	margin-top:20px;
+	margin-right: auto;
+	margin-left: auto;
+	position: relative;
+}
+#general #identidad #logo_politecnica {
+	background-image: url(../imagenes/logo_politecnica.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 175px;
+	width: 140px;
+	margin-top: 25px;
+	margin-right: auto;
+	margin-left: auto;
+}
+#general #identidad #indicador_estado {
+	position: relative;
+	height: 210px;
+	width: 215px;
+	margin-top: 50px;
+	padding-top: 0px;
+	padding-left:25px;
+}
+#general #identidad #indicador_estado .posicion_actual {
+	color: #FFFF33;
+}
+
+#general #identidad #indicador_estado #barra_lateral {
+	position: absolute;
+	height: 100%;
+	width: 15px;
+	left: 0px;
+	top: 0px;
+	background-color: #05BFCF;
+}
+#general #identidad #indicador_estado p {
+	font-size: 16px;
+	color: #af87ff;
+}
+#general #transaccional {
+	position: relative;
+	height: 600px;
+	width: 720px;
+	left: 240px;
+	top: 0px;
+	background: url(../imagenes/fondo_navegacion.png) center bottom no-repeat;
+}
+#general #transaccional #principal {
+	background: url(../imagenes/fondo_principal.png) no-repeat right center;
+	position: relative;
+	font-size: 18px;
+	color:#7a7a7a;
+	height: 480px;
+	width: 700px;
+	padding-left:20px;
+	padding-top:30px;
+}
+#general #transaccional #principal h1{
+	color:#651FFF;
+	font-size:22px;
+	margin-bottom:5px;
+}
+#general #transaccional #navegacion {
+	position: relative;
+	height: 90px;
+	width: 720px;
+	text-align: right;
+}
+#general #transaccional #navegacion #btnSiguiente {
+	background-image: url(../imagenes/btn_siguiente.png);
+	background-repeat: no-repeat;
+	height: 58px;
+	width: 58px;
+	position: absolute;
+	left: 640px;
+	top: 20px;
+}
+#general #transaccional #navegacion #btnSiguiente:hover {
+	cursor:pointer;
+}
+#general #transaccional #navegacion #btnSiguiente:active {
+	background-image: url(../imagenes/btn_siguiente_active.png);
+}
+
+#general #transaccional #navegacion #btnAnterior{
+	background-image: url(../imagenes/btn_anterior.png);
+	background-repeat: no-repeat;
+	height: 58px;
+	width: 58px;
+	position: absolute;
+	left: 560px;
+	top: 20px;
+}
+#general #transaccional #navegacion #btnAnterior:hover {
+	cursor:pointer;
+}
+#general #transaccional #navegacion #btnAnterior:active {
+	background-image: url(../imagenes/btn_anterior_active.png);
+}
+
+#general #transaccional #navegacion #btnSalir{
+	background-image: url(../imagenes/btn_salir.png);
+	background-repeat: no-repeat;
+	height: 58px;
+	width: 58px;
+	position: absolute;
+	left: 380px;
+	top: 20px;
+}
+#general #transaccional #navegacion #btnSalir:hover {
+	cursor:pointer;
+}
+#general #transaccional #navegacion #btnSalir:active {
+	background-image: url(../imagenes/btn_salir_active.png);
+}
+
+#general #transaccional #navegacion #btnPensum{
+	background-image: url(../imagenes/btn_pensum.png);
+	background-repeat: no-repeat;
+	height: 58px;
+	width: 58px;
+	position: absolute;
+	left: 450px;
+	top: 20px;
+}
+#general #transaccional #navegacion #btnPensum:hover {
+	cursor:pointer;
+}
+#general #transaccional #navegacion #btnPensum:active {
+	background-image: url(../imagenes/btn_pensum_active.png);
+}
+
+
+#ventana_emergente {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	top: 0px;
+	left: 0px;
+	z-index:100;
+	visibility:hidden;
+}
+#ventana_emergente #fondo {
+	background-color: #000;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 0px;
+	opacity:0.7;
+}
+#ventana_emergente #ventana {
+	width: 650px;
+	margin-top: -120px;
+	margin-left: -325px;
+	top:50%;
+	left:50%;
+	position: absolute;
+	background-color: #FFF;
+	border-radius:10px;
+	padding-bottom:10px;
+	overflow:hidden;
+}
+#ventana_emergente #ventana #barra_superior {
+	position: relative;
+	width: 100%;
+	height: 25px;
+	background-color: #BABABA;
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	overflow:hidden;
+}
+#ventana_emergente #ventana #barra_superior #titulo {
+	position: relative;
+	height: 25px;
+	width: 600px;
+}
+
+#ventana_emergente #ventana #barra_superior #cerrar_ventana {
+	position: absolute;
+	height: 20px;
+	width: 20px;
+	left: 628px;
+	top: 2px;
+	background-image: url(../imagenes/btnSair.png);
+	opacity:0.65;
+}
+
+#ventana_emergente #ventana #barra_superior #cerrar_ventana:hover {
+	opacity:1;
+}
+
+#ventana_emergente #ventana #barra_superior #mensaje_titulo {
+	color: #900;
+	margin-left:10px;
+	padding-top:3px;
+}
+
+#ventana_emergente #ventana #mensaje_texto {
+	background:#FFF;
+	min-height:100px;
+	width:100%;
+}
+
+#ventana_emergente #ventana #mensaje_texto p{
+	padding-left:10px;
+	padding-right:10px;
+	color:#555;
+	text-align:justify;
+	font-size:14px;
+}
+#ventana_emergente #ventana #mensaje_texto p b{
+	color:#000;
+	font-weight:normal;
+	font-size:15px;
+}
+
+#ventana_emergente #ventana #mensaje_texto .boton {
+	border-radius: 3px;
+	background-image: url(../imagenes/fondo_boton.png);
+	height: 25px;
+	width: 100px;
+	padding-left:4px;
+	padding-right:4px;
+	text-align:center;
+	opacity:0.70;
+	float:left;
+	margin-left:5px;
+}
+#ventana_emergente #ventana #mensaje_texto .boton:hover {
+	opacity:1;
+}
+#ventana_emergente #ventana #mensaje_texto .boton:active {
+	opacity:1;
+	background-image: url(../imagenes/fondo_boton_active.png);
+}

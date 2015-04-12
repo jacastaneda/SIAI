@@ -1,0 +1,159 @@
+@font-face {
+    font-family: Maximus;
+    src: url('Maximus.eot');
+	src: url('Maximus.ttf') format('truetype');
+    font-style: normal;
+}
+
+body
+{
+	background: #07001A url(../imagenes/fondo_body.png) repeat;
+	font-family: Maximus;
+	font-size:18px;
+}
+
+#general {
+	position: relative;
+	width: 600px;
+	height:auto;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #FFF;
+}
+#general #encabezado {
+	background-image: url(../imagenes/fondo_encabezado.png);
+	background-repeat: repeat-y;
+	height: 150px;
+	width: 100%;
+	position: relative;
+}
+#general #encabezado #logo {
+	background-image: url(../imagenes/logo_login.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	position: absolute;
+	height: 140px;
+	width: 205px;
+	left: 390px;
+}
+#general #contenido {
+	position: relative;
+	height: 280px;
+	width: 100%;
+}
+#general #contenido .contenedor {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	left: 0px;
+	top: 0px;
+}
+#general #contenido .contenedor .contenido {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	left: 0px;
+	top: 0px;
+}
+#general #contenido .contenedor .contenido p,b{
+	font-size:14px;
+	color:#777;
+	font-weight:normal;
+}
+#general #contenido #inicio_sesion .contenido {
+	z-index:3;
+	background: #FFF url(../imagenes/logo_politecnica.png) 20px 40px no-repeat;
+}
+#general #contenido .contenido .caja_texto{
+	border-radius:10px;
+	border: solid #BBB 1px;
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+#general #contenido #inicio_sesion .contenido #formulario_ingreso {
+	position:relative;
+	padding-top:35px;
+	margin-left:180px;
+	width:400px;
+}
+
+#general #contenido #activar_usuario .contenido {
+	z-index:2;
+	background: #FFF;
+}
+
+#general #contenido .contenido .cierre{
+	text-align: right;
+	padding-right: 30px;
+	padding-top:35px;
+	height: 37px;
+	width: 570px;
+	position: absolute;
+	top: 210px;
+	left:0px;
+	background:url(../imagenes/cierre_login.png) no-repeat bottom;
+}
+
+#general #contenido #tutorial .contenido {
+	z-index:1;
+	background: #FFF url(../imagenes/logo_politecnica.png) 20px center no-repeat;
+}
+
+#general #contenido .pestana {
+	opacity:0.6;
+}
+
+#general #contenido #inicio_sesion .pestana {
+	position: absolute;
+	height: 25px;
+	width: 120px;
+	left: 4px;
+	top: -30px;
+	padding-top:5px;
+	padding-left:5px;
+	padding-right:5px;
+	text-align:center;
+	font-size:16px;
+	opacity:1;
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	background-color:#FFF;
+}
+
+#general #contenido #activar_usuario .pestana {
+	position: absolute;
+	height: 25px;
+	width: 120px;
+	left: 136px;
+	top: -30px;
+	padding-top:5px;
+	padding-left:5px;
+	padding-right:5px;
+	text-align:center;
+	font-size:16px;
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	background-color:#FFF;
+}
+#general #contenido #tutorial .pestana {
+	position: absolute;
+	height: 25px;
+	width: 120px;
+	left: 268px;
+	top: -30px;
+	padding-top:5px;
+	padding-left:5px;
+	padding-right:5px;
+	text-align:center;
+	font-size:16px;
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	background-color:#FFF;
+}
+
+#general #contenido .pestana:hover {
+	cursor:pointer;
+}#general #contenido p {
+	margin-bottom: 3px;
+}

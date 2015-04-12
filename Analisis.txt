@@ -1,0 +1,15 @@
+usuario: tt200601/admin  nui:(018036)
+
+usuario: denys/root
+1,7419700005582,2012/12/14,14:59:00,034,55,0	nui=020011		arancel=025 coutoa=6 ciclo =1 año= 12
+
+_______________________________________________________________________________________
+hay que agregarle a la taba usuarios el campo idcatedratico
+ALTER TABLE  `usuarios` ADD  `idCatedratico` INT NOT NULL AFTER  `CODIGO` ;
+
+
+
+
+hay clavo en la clase los campos de asesoria cupo y marcar solventado con cambiar el tipo de datos varchar(1)
+
+hay clavo porque no inserta el ciclo correspondiente

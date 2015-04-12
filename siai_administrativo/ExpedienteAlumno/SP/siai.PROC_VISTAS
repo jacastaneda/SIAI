@@ -1,0 +1,12 @@
+DROP PROCEDURE IF EXISTS siai.PROC_VISTAS;
+
+CREATE PROCEDURE siai.`PROC_VISTAS`(tabla       varchar(100),
+                                       busqueda    varchar(100))
+   BEGIN
+      IF (tabla = "expedientealumno")
+      THEN
+         SELECT *
+           FROM expedientealumno
+          WHERE CARNET = busqueda;
+      END IF;
+   END;

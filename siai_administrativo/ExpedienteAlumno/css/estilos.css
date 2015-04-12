@@ -1,0 +1,129 @@
+@charset "utf-8";
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+ audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+body {
+    background: #ccc;
+}
+#slider {
+    height: 280px;
+}
+#slider ul:before {
+background: rgb(0,153,153); /* Old browsers */
+/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzAwOTk5OSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjY2JSIgc3RvcC1jb2xvcj0iIzRhOTk5OSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9Ijg2JSIgc3RvcC1jb2xvcj0iIzZhYjdiNiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9Ijk5JSIgc3RvcC1jb2xvcj0iIzAwOTk5OSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgPC9saW5lYXJHcmFkaWVudD4KICA8cmVjdCB4PSIwIiB5PSIwIiB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=);
+background: -moz-linear-gradient(left,  rgb(0,153,153) 0%, rgb(74,153,153) 66%, rgb(106,183,182) 86%, rgb(0,153,153) 99%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgb(0,153,153)), color-stop(66%,rgb(74,153,153)), color-stop(86%,rgb(106,183,182)), color-stop(99%,rgb(0,153,153))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(left,  rgb(0,153,153) 0%,rgb(74,153,153) 66%,rgb(106,183,182) 86%,rgb(0,153,153) 99%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(left,  rgb(0,153,153) 0%,rgb(74,153,153) 66%,rgb(106,183,182) 86%,rgb(0,153,153) 99%); /* Opera 11.10+ */
+background: -ms-linear-gradient(left,  rgb(0,153,153) 0%,rgb(74,153,153) 66%,rgb(106,183,182) 86%,rgb(0,153,153) 99%); /* IE10+ */
+background: linear-gradient(to right,  rgb(0,153,153) 0%,rgb(74,153,153) 66%,rgb(106,183,182) 86%,rgb(0,153,153) 99%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#009999', endColorstr='#009999',GradientType=1 ); /* IE6-8 */
+
+    border-radius: 30px 0 0 30px;
+    box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.65);
+    content: "";
+    height: 100%;
+    margin-top: -40px;
+    position: absolute;
+    width: 182px;
+    z-index: 100;
+}
+#slider ul {
+    list-style: none outside none;
+    margin-left: 10px;
+    margin-top: 10px;
+    padding: 40px 0;
+    position: relative;
+    width: 182px;
+}
+#slider ul li {
+    height: 40px;
+    width: 182px;
+}
+
+#slider ul li a.menudesplieg {
+    border-bottom: 1px solid #00CFCA;
+    color: white;
+    display: block;
+    font-family: 'Trebuchet MS';
+    font-size: 1.6em;
+    font-style: italic;
+    letter-spacing: -1px;
+    padding-left: 22px;
+    position: absolute;
+    text-decoration: none;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    width: 160px;
+    z-index: 110;
+}
+#slider ul li div {
+	background: none repeat scroll 0 0 rgba(0, 0, 0, 0.6);
+	border-radius: 0 15px 15px 0;
+	color: white;
+	height: 266px;
+	left: 0;
+	opacity: 0;
+	overflow: hidden;
+	padding: 0 15px 15px;
+	position: absolute;
+	top: -22px;
+	transition: 1s left,1s width,1s opacity;
+	-webkit-transition: 1s left,1s width,1s opacity;
+	-moz-transition: 1s left,1s width,1s opacity;
+	-o-transition: 1s left,1s width,1s opacity;
+	width: 152px;
+	z-index: 50;
+}
+#slider ul li:hover div {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.6);
+    left: 182px;
+    opacity: 1;
+    width: 276px;
+	height:250px
+	
+}
+
+#slider ul li div h5 {
+    border-bottom: 1px solid #888;
+    color: #009999;
+    font-family: trebuchet ms;
+    font-size: 2.5em;
+    margin: 0 0 5px;
+    text-align: center;
+}
+#slider ul li div p {
+    font-family: trebuchet ms;
+    font-size: 1em;
+    font-style: italic;
+    font-weight: normal;
+    overflow: hidden;
+    padding-top: 15px;
+    width: 276px;
+}
+#slider ul li div span.desplieg {
+	float: right;
+}
+#slider ul li div span.desplieg a {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border-radius: 8px 8px 8px 8px;
+    color: #009999;
+    display: inline-block;
+    font-size: 15px;
+    font-weight: bold;
+    height: 18px;
+	width:270px;
+    margin: 10px 0;
+    padding: 4px;
+    text-decoration: none;
+}

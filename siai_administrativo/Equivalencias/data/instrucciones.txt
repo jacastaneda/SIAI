@@ -1,0 +1,23 @@
+1. crea las tablas con ingEquivalencias 2daVersion.sql
+2 inserta los datos de prueba con insert de tablas.sql.txt (este te lo voy actualizar con mas registros peor mas tarde)
+3 crea los triggers con trg_bef_inser_Universid.sql
+
+_________________________________________________________________________________________________________
+los manteniemientos son estos
+
+ok 1) vistaExpedieteAlumno.php -->es la que se ocupa para crear la solictud y la matraiz de equivalencia, con
+ok 1.1) EstadoSoliEquivalencia.php --> es la de estado de Solicitud
+ok 1.2) EstadoMateria.php  --> es la de los estado de las materias en quivalencia
+
+ok 2) Universidad.php--> esta llama a las faccultades, carreras y materias
+
+ok 3)MatrizVista.php --> esta es la que debe de ir en el sistema de LUIS para ver 
+		      las materias q se peuden dar de quivalencia pedida por ing cardosa q ira en la web
+
+
+4) Matrizparam.php-- > esta es la que se ocupa para crear la matriz por universidad
+
+
+5) me faltaron 2 mtto los de cargos y catedraticos, si me queda chance te los hago y te los paso mas tarde
+
+

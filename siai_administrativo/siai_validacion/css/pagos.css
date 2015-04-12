@@ -1,0 +1,27 @@
+#general #transaccional #principal #tabla
+{
+	max-height:250px;
+	width:100%;
+	overflow:auto;
+}
+
+#general #transaccional #principal #tabla table {
+	background-color: #FFF;
+}
+
+
+#general #transaccional #principal #tabla table tr th {
+	font-size: 14px;
+	color: #000;
+	border: 1px solid #777;
+	background: #DDF;
+}
+
+#general #transaccional #principal #tabla table tr td {
+	font-family: "Times New Roman", Times, serif;
+	font-style:italic;
+	font-size: 14px;
+	color: #333;
+	border: 1px solid #777;
+}
+

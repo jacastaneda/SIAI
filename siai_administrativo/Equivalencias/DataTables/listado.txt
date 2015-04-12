@@ -1,0 +1,77 @@
+ El volumen de la unidad C no tiene etiqueta.
+ El n£mero de serie del volumen es: C8C7-7FB5
+
+ Directorio de C:\xampp\htdocs\DataTables
+
+06/01/2013  06:36 p.m.               729 ajaxCarrera.php
+07/01/2013  01:55 a.m.             1,262 ajaxCarreraUPES.php
+08/01/2013  11:12 p.m.               995 ajaxCoordinador.php
+09/01/2013  04:46 a.m.             1,028 ajaxEstadoMateriaEQ.php
+08/01/2013  11:06 p.m.               919 ajaxEstadoSolicitud.php
+01/01/2013  11:24 p.m.               678 ajaxFacultad.php
+07/01/2013  01:18 a.m.             2,634 ajaxMateria.php
+07/01/2013  12:47 a.m.             1,324 ajaxMateriaUPES.php
+08/01/2013  01:53 p.m.             3,493 ajaxMatriz.php
+09/01/2013  02:52 a.m.               566 ajaxUniversidad.php
+08/01/2013  10:13 p.m.               713 buscarCarnetUPES.php
+31/12/2012  04:53 a.m.               842 buscarCarrera.php
+09/01/2013  04:01 a.m.             3,403 buscarEquivalencia.php
+01/01/2013  03:55 p.m.               567 buscarEstadoCivil.php
+01/01/2013  04:45 p.m.               621 buscarEstadoMateria.php
+01/01/2013  05:12 p.m.               902 buscarEstadoSoliEquivalencia.php
+08/01/2013  03:39 a.m.               820 buscarFacultad.php
+01/01/2013  03:10 p.m.             1,127 buscarMateria.php
+08/01/2013  11:27 a.m.             1,118 buscarMateriaUPES.php
+08/01/2013  11:38 a.m.             2,968 buscarMatriz.php
+09/01/2013  01:22 a.m.               768 buscarSolicitud.php
+31/12/2012  03:45 a.m.               569 buscarUniversidad.php
+08/01/2013  05:25 a.m.            16,429 Carrera.php
+08/01/2013  05:29 a.m.             3,050 CarreraReload.php
+01/01/2013  03:57 p.m.               721 editarCarrera.php
+09/01/2013  05:11 a.m.             1,172 editarEquivalencias.php
+01/01/2013  03:59 p.m.               547 editarEstadoCivil.php
+01/01/2013  04:36 p.m.               589 editarEstadoMateria.php
+01/01/2013  05:09 p.m.               789 editarEstadoSoliEquivalencia.php
+08/01/2013  03:38 a.m.               712 editarFacultad.php
+01/01/2013  02:58 p.m.               915 editarMateria.php
+07/01/2013  02:06 a.m.             1,136 editarMatriz.php
+01/01/2013  03:57 p.m.               548 editarUniversidad.php
+01/01/2013  04:00 p.m.               500 eliminarCarrera.php
+01/01/2013  04:01 p.m.               352 eliminarEstadoCivil.php
+01/01/2013  04:37 p.m.               386 eliminarEstadoMateria.php
+01/01/2013  05:03 p.m.               405 eliminarEstadoSoliEquivalencia.php
+01/01/2013  04:00 p.m.               435 eliminarFacultad.php
+07/01/2013  02:14 a.m.               601 eliminarMateria.php
+07/01/2013  02:19 a.m.               827 eliminarMatriz.php
+09/01/2013  01:22 a.m.               359 eliminarSolicitud.php
+01/01/2013  03:59 p.m.               353 eliminarUniversidad.php
+09/01/2013  11:53 a.m.            32,303 Equivalencias.php
+09/01/2013  05:22 a.m.             4,291 EquivalenciasReload.php
+08/01/2013  02:53 a.m.             9,504 EstadoCivil.php
+08/01/2013  02:53 a.m.             9,722 EstadoMateria.php
+08/01/2013  02:53 a.m.            11,120 EstadoSoliEquivalencia.php
+08/01/2013  02:50 a.m.            13,704 Facultad.php
+08/01/2013  04:50 a.m.            15,792 Facultad2.php
+08/01/2013  04:00 a.m.             2,878 Facultadejemplo.php
+08/01/2013  04:26 a.m.             2,905 FacultadReload.php
+31/12/2012  05:12 a.m.               795 guardarCarrera.php
+01/01/2013  04:08 p.m.               522 guardarEstadoCivil.php
+01/01/2013  04:38 p.m.               544 guardarEstadoMateria.php
+01/01/2013  05:02 p.m.               745 guardarEstadoSoliEquivalencia.php
+08/01/2013  04:10 a.m.               776 guardarFacultad.php
+01/01/2013  03:03 p.m.               982 guardarMateria.php
+05/01/2013  11:57 a.m.             1,280 guardarMatriz.php
+09/01/2013  12:28 a.m.             1,466 guardarSolicitud.php
+31/12/2012  02:19 a.m.               523 guardarUniversidad.php
+09/01/2013  11:51 a.m.               881 insertarEquivalencias.php
+08/01/2013  10:59 a.m.            17,683 Materia.php
+08/01/2013  11:28 a.m.            31,454 Matriz.php
+08/01/2013  02:52 a.m.             6,685 Matrizparam.php
+08/01/2013  01:51 p.m.            25,243 MatrizVista.php
+09/01/2013  02:08 a.m.            12,198 Solicitud.php
+09/01/2013  04:16 a.m.            20,277 SolicitudEquivalencia.php
+09/01/2013  02:12 a.m.             3,171 SolicitudReload.php
+08/01/2013  02:52 a.m.            11,132 Universidad.php
+08/01/2013  03:24 p.m.             7,812 vistaExpedieteAlumno.php
+              70 archivos        305,260 bytes
+               0 dirs  250,492,280,832 bytes libres

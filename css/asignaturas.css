@@ -1,0 +1,62 @@
+#general #transaccional #asignaturas {
+    position: relative;
+    height:440px;
+    overflow-y: auto;
+}
+#general #transaccional #asignaturas .asignaturas {
+    font-size: 17px;
+    margin-top: 8px;
+}
+#general #transaccional #asignaturas .asignaturas:hover {
+    cursor:pointer;
+}
+
+#general #transaccional #asignaturas .secciones {
+    font-size: 15px;
+    visibility:hidden;
+    height:0px;
+}
+#general #transaccional #asignaturas .secciones table{
+text-align: right;
+width: 100%;
+}
+#general #transaccional  #horarios {
+    background:rgba(255,255,255,0.85);
+    height: 420px;
+    overflow-y: auto;
+    margin-top: 5px;
+    padding-left:10px;
+    padding-right:10px;
+    padding-top:10px;
+}
+
+#general #transaccional #horarios h1{
+    color:#11667c;
+    font-weight:normal;
+    font-size:19px;
+    margin-bottom:3px;
+    margin-top:3px;
+}
+#general #transaccional #horarios h2{
+    color:#11667c;
+    font-weight:normal;
+    font-size:18px;
+    margin-bottom:5px;
+    margin-top:5px;
+}
+
+#general #transaccional #horarios h3{
+    color:#057a85;
+    font-weight:normal;
+    font-size:16px;
+    margin-bottom:5px;
+    margin-top:15px;
+}
+
+#general #transaccional #horarios p{
+    color:#057a85;
+    font-weight:normal;
+    font-size:15px;
+    margin-bottom:0px;
+    margin-top:5px;
+}
