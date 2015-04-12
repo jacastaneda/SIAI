@@ -1,0 +1,132 @@
+<?php 
+	session_start();
+	include_once("clases/ClassConexion.php");
+	include_once("clases/ClassExpedientealumno.php");
+	include_once("clases/ClassCarrera.php");
+	include_once('clases/ClassSiaiUsuario.php');
+	include_once('clases/ClassSiaiControl.php');
+	
+	if(isset($_SESSION['siai']['usuario']) && isset($_SESSION['siai']['expediente']) && isset($_SESSION['siai']['control']))
+	{
+		$estudiante= unserialize($_SESSION['siai']['expediente']);
+		$usuario_estudiante=unserialize($_SESSION['siai']['usuario']);
+		$siaiControl=unserialize($_SESSION['siai']['control']);
+		if($usuario_estudiante->getTipo()==0 && $usuario_estudiante->getActivado()==1)
+		{
+			if($siaiControl->getPaso()==0)
+			{
+				$siaiControl->setPaso(1);
+				$siaiControl->updateSiaiControl();
+				$_SESSION['siai']['control']=serialize($siaiControl);
+			}
+		}
+		else
+		{
+			unset($_SESSION['siai']);
+			header( 'Location: sesion.php' ) ;
+		}		
+	}
+	else
+	{
+		unset($_SESSION['siai']);
+		header( 'Location: sesion.php' ) ;
+	}
+	
+	$carrera= new Carrera();
+	$carrera->setCarreraPorLlave($estudiante->getCodcarrera());
+	
+	$_SESSION['siai']['carrera']=serialize($carrera);
+	$comentario=$estudiante->getObservacio();
+	$comentario=explode("\n",$comentario);			
+	
+	
+	
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>SIAI-Actualización de Datos</title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="favicon.ico">
+<link href="css/general.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="js/Comunes.js"></script>
+<script type="text/javascript" src="js/Validaciones.js"></script>
+<script type="text/javascript" src="js/Estudiante.js"></script>
+</head>
+
+<body onresize="javascript: onResize();" onload="javascript: onResize();">
+	<div id="general">
+    	<div id="identidad">
+        	<div id="logo"></div>
+            <div id="logo_politecnica"></div>
+            <div id="indicador_estado">
+            	<div id="barra_lateral"></div>
+                <p id="estado_actualizar" class="posicion_actual">Actualización de Datos</p>
+                <p id="estado_seleccion">Selección de Asignaturas</p>
+                <p id="estado_horario">Impresión de Horario</p>
+                <p id="estado_pagos">Mandamiento de Pagos</p>
+                <p id="estado_inscripcion">Hoja de Inscripción</p>
+            </div>
+        </div>
+        <div id="transaccional">
+        	<div id="principal">
+            	<h1>Datos Personales</h1> 
+                <table width="360" border="0" cellpadding="0" cellspacing="10">
+                    <tr>
+                        <td align="right" width="120">Nombre:</td>
+                        <td width="*" colspan="3"><input type="text" id="nombre" style=" width:360px; color:#AAAAAA;" value="<?php echo $estudiante->getNombres()." ".$estudiante->getApellido1()." ".$estudiante->getApellido2(); ?>" disabled="disabled"/></td>
+                    </tr>
+                    <tr>
+                        <td align="right" width="120">Carné:</td>
+                        <td width="*" colspan="3"><input type="text" id="carnet" style=" width:120px; color:#AAAAAA;" value="<?php echo $estudiante->getCarnet(); ?>" disabled="disabled"/></td>
+                    </tr>
+                    <tr>
+                        <td align="right" width="120" valign="top">*Dirección:</td>
+                        <td width="*" colspan="3"><textarea id="dir_casa" style="width:360px; height:40px" ><?php echo $estudiante->getDireccion(); ?></textarea></td>
+                    </tr>
+                    <tr>
+                        <td align="right" width="120" valign="top">*Teléfono:</td>
+                        <td width="120"><input type="text" id="telefono_casa" style="width:120px;" value="<?php echo $estudiante->getTelefono(); ?>" maxlength="14"/></td>
+                        <td align="right" width="120" valign="top"></td>
+                        <td width="120"></td>
+                    </tr>
+                    <tr>
+                        <td align="right" width="120">*Email:</td>
+                        <td width="*" colspan="3"><input type="text" id="email" style="width:240px;" value="<?php echo $usuario_estudiante->getEmail(); ?>"/></td>
+                    </tr>
+                </table>
+                <h1>Datos Laborales</h1> 
+                <table width="360" border="0" cellpadding="0" cellspacing="10">
+                    <tr>
+                        <td align="right" width="120">Empresa:</td>
+                        <td width="*" colspan="3"><input type="text" id="empresa" style=" width:240px;" value="<?php echo $estudiante->getLugartraba(); ?>"/></td>
+                    </tr>
+                    <tr>
+                        <td align="right" width="120" valign="top">Dirección:</td>
+                        <td width="*" colspan="3"><textarea id="dir_trabajo" style="width:360px; height:40px" ><?php echo $estudiante->getDirtrabajo(); ?></textarea></td>
+                    </tr>
+                    <tr>
+                        <td align="right" width="120" valign="top">Teléfono:</td>
+                        <td width="120"><input type="text" id="telefono_trabajo" style="width:120px;" value="<?php echo $estudiante->getTeltrabajo(); ?>" maxlength="14"/></td>
+                        <td align="right" width="120" valign="top"></td>
+                        <td width="120"></td>
+                    </tr>
+                </table>              
+            </div>
+            <div id="navegacion"><div id="btnSiguiente" onclick="javascript: actualizar();"></div></div>
+        </div>
+    </div>
+    <div id="ventana_emergente">
+    	<div id="fondo"></div>
+      	<div id="ventana">
+        	<div id="barra_superior"><div id="mensaje_titulo">Choque de Horarios</div><div id="cerrar_ventana" onclick="javascript: ocultarVentana();"></div></div>
+        	<div id="mensaje_texto">
+            	<div class="boton">prueba</div>
+            </div>
+      	</div>    	
+    </div>
+    <script type="text/javascript">setElementos()</script>
+</body>
+</html>
