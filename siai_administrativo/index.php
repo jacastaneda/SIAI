@@ -74,7 +74,7 @@ input[type="text"], input[type="password"] {
 </div>
 <footer> 
   <p>&nbsp;</p>
-  <p>Universidad Pollitécnica de El Salvador <?php echo date('Y');?> </p>
+  <p>Universidad Politécnica de El Salvador <?php echo date('Y');?> </p>
 </footer>
 </div>
 <p>&nbsp;</p>
