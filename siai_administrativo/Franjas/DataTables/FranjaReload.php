@@ -1,12 +1,19 @@
 <?php session_start(); 
 require_once 'funciones/conexiones.php';
 $ruta_assets='../../Equivalencias/DataTables/';
-    if(isset($_POST["idCiclo"])) { 
-        $_SESSION['idCiclo'] = serialize($_POST["idCiclo"]); 
+    if(isset($_POST["Ciclo"])) { 
+        $_SESSION['ciclo'] = serialize($_POST["Ciclo"]); 
     } 
-    if(isset($_SESSION['idCiclo'])) { 
-        $g_IdCiclo = unserialize($_SESSION['idCiclo']); 
+    if(isset($_SESSION['ciclo'])) { 
+        $ciclo_actual = unserialize($_SESSION['ciclo']); 
     }
+    
+    if(isset($_POST["Anio"])) { 
+        $_SESSION['anio'] = serialize($_POST["Anio"]); 
+    } 
+    if(isset($_SESSION['anio'])) { 
+        $anio_actual = unserialize($_SESSION['anio']); 
+    } 
 ?>   
         <table cellpadding="0" cellspacing="0" border="0" class="display" id="example" width="100%">    
 	<thead>
@@ -23,13 +30,13 @@ $ruta_assets='../../Equivalencias/DataTables/';
 	<tbody> 
             <?php
             $con = Conectar();
-            $sql = "SELECT f.id_franja, f.id_ciclo, f.CODIGO_CAR, f.fecha_hora_inicio, f.fecha_hora_fin, f.comentario, f.estado,
-                    ci.ciclo,c.CODIGO_CAR, c.NOMBRE
+            $sql = "SELECT f.id_franja, f.anio, f.ciclo, f.CODIGO_CAR, f.fecha_hora_inicio, f.fecha_hora_fin, f.comentario, f.estado,
+                    c.CODIGO_CAR, c.NOMBRE
                     FROM siai_franjas_inscripcion AS f
-                    JOIN siai_ciclos AS ci ON ci.id_ciclo=f.id_ciclo 
                     JOIN carrera AS c ON c.CODIGO_CAR=f.CODIGO_CAR 
-                    WHERE f.id_ciclo=$g_IdCiclo
-                    ORDER BY ci.ciclo";
+                    WHERE f.ciclo=$ciclo_actual AND f.anio=$anio_actual
+                    ORDER BY f.ciclo";
+//            echo $sql;
             $q = mysql_query($sql, $con) or die ("Problemas al ejecutar la consulta");                
             while($datos = mysql_fetch_array($q)){
             ?>

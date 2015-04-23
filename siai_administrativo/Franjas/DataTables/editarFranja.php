@@ -1,7 +1,8 @@
 <?php
 require_once 'funciones/conexiones.php';
 $idFranja = $_POST['txtidFranja'];
-$idCiclo = $_POST['txtidCiclo'];
+$Ciclo = $_POST['txtCiclo'];
+$Anio = $_POST['Anio'];
 $CODIGO_CAR = $_POST['txtCODIGO_CAR'];
 $FechaHoraIni = $_POST['txtFechaHoraIni'];
 $FechaHoraFin = $_POST['txtFechaHoraFin'];

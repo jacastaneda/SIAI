@@ -7,14 +7,16 @@
     $info = array();
     while($datos = mysql_fetch_array($q))
     {
-        $id_ciclo = $datos['id_ciclo'];
+        $ciclo = $datos['ciclo'];
+        $anio = $datos['anio'];
         $id_franja = $datos['id_franja'];
         $CODIGO_CAR = $datos['CODIGO_CAR'];
         $fecha_hora_inicio = $datos['fecha_hora_inicio'];
         $fecha_hora_fin = $datos['fecha_hora_fin'];
     }
     desconectar();
-    $info['id_ciclo'] = $id_ciclo;
+    $info['ciclo'] = $ciclo;
+    $info['anio'] = $anio;
     $info['id_franja'] = $id_franja;  
     $info['CODIGO_CAR'] = $CODIGO_CAR;  
     $info['fecha_hora_inicio'] = $fecha_hora_inicio;  

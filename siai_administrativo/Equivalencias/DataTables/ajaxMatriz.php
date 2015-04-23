@@ -34,8 +34,8 @@ require_once 'funciones/conexiones.php';
 		<tr>
 <!--			<th>Id Universidad</th>
                         <th>Id Facultad</th>
-                        <th>Id Carrera</th>-->
-                        <th>Id</th>
+                        <th>Id Carrera</th>
+                        <th>Id</th>-->
                         <th>Materia Procedencia</th>
                         <th>UV Procedencia</th>
                         <th>Carrera UPES</th>
@@ -94,8 +94,8 @@ require_once 'funciones/conexiones.php';
 		<tr>
 <!--			<td><?php echo $datos['nombreUniversidad']; ?></td>
                         <td><?php echo $datos['nombreFacultadEqui']; ?></td>
-                        <td><?php echo $datos['nombreCarreraEquivalencia']; ?></td>-->
-                        <td><?php echo $datos['idCorrMateria']; ?></td>                        
+                        <td><?php echo $datos['nombreCarreraEquivalencia']; ?></td>
+                        <td><?php echo $datos['idCorrMateria']; ?></td>-->                        
                         <td><?php echo $datos['nombreMateriaProcedencia']; ?></td>
                         <td><?php echo $datos['UV_procedencia']; ?></td>
                         <td><?php echo $datos['carreraUPES']; ?></td>
@@ -111,8 +111,8 @@ require_once 'funciones/conexiones.php';
 		<tr>
 <!--			<th></th>
                         <th></th>
-                        <th></th>-->
                         <th></th>
+                        <th></th>-->
 			<th></th>
                         <th></th>
                         <th></th>

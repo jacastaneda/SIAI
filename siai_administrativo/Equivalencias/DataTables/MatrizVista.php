@@ -168,8 +168,8 @@
 		<tr>
 <!--			<th>Id Universidad</th>
                         <th>Id Facultad</th>
-                        <th>Id Carrera</th>-->
-                        <th>Id</th>
+                        <th>Id Carrera</th>
+                        <th>Id</th>-->
                         <th>Materia Procedencia</th>
                         <th>UV Procedencia</th>
                         <th>Carrera UPES</th>
@@ -186,8 +186,8 @@
 		<tr>
 <!--			<th></th>
                         <th></th>
-                        <th></th>-->
                         <th></th>
+                        <th></th>-->
 			<th></th>
                         <th></th>
                         <th></th>

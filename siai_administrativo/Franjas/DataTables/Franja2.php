@@ -2,14 +2,20 @@
     require_once 'funciones/conexiones.php';
     $ruta_assets='../../Equivalencias/DataTables/';
     session_start();
-    if(isset($_POST["idCiclo"])) { 
-        $_SESSION['idCiclo'] = serialize($_POST["idCiclo"]); 
+    if(isset($_POST["ciclo"])) { 
+        $_SESSION['ciclo'] = serialize($_POST["ciclo"]); 
     } 
-    if(isset($_SESSION['idCiclo'])) { 
-        $g_IdCiclo = unserialize($_SESSION['idCiclo']); 
+    if(isset($_SESSION['ciclo'])) { 
+        $ciclo_actual = unserialize($_SESSION['ciclo']); 
     }
-//    echo $g_IdCiclo;
-    //$g_IdUniversidad=$_POST["idUniversidad"];    
+    
+    if(isset($_POST["anio"])) { 
+        $_SESSION['anio'] = serialize($_POST["anio"]); 
+    } 
+    if(isset($_SESSION['anio'])) { 
+        $anio_actual = unserialize($_SESSION['anio']); 
+    }    
+
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
@@ -70,7 +76,8 @@
 
                         if ($("#btnNuevo").val()=="Agregar Franja horaria"){
 //                            alert($('#idCicloParam').attr("value"));
-                            $("#txtidCiclo").attr("value", $('#idCicloParam').attr("value"));
+                            $("#txtCiclo").attr("value", $('#CicloParam').attr("value"));
+                            $("#txtAnio").attr("value", $('#AnioParam').attr("value"));
                             $("#txtCODIGO_CAR").attr("value",'');                        
                             $("#txtFechaHoraIni").attr("value",'');
                             $("#txtFechaHoraFin").attr("value",'');
@@ -91,7 +98,9 @@
                     $('#target').submit();
                 })
                 $("#btnProcesar").click(function(){
-                    v_idCiclo = $("#txtidCiclo").attr("value");                          
+//                    alert($("#AnioParam").attr("value"));
+                    v_Ciclo = $("#CicloParam").attr("value"); 
+                    v_Anio = $("#AnioParam").attr("value"); 
                     v_CODIGO_CAR = $("#sltCODIGO_CAR").attr("value");
                     v_FechaHoraIni = $("#txtFechaHoraIni").attr("value");                          
                     v_FechaHoraFin = $("#txtFechaHoraFin").attr("value");                    
@@ -110,7 +119,7 @@
                                 $("#loader").hide();
                                 $("#formularioRegistrar").hide();
                                 //location.reload(true);                                
-                                cargarTabla(v_idCiclo);
+                                cargarTabla(v_Ciclo, v_Anio);
                             }
                         })
                     }
@@ -125,7 +134,7 @@
                                 $("#loader").hide();
                                 $("#formularioRegistrar").hide();
                                 //location.reload(true);
-                                cargarTabla(v_idCiclo);                                
+                                cargarTabla(v_Ciclo, v_Anio);                                
                             }
                     })
                     }
@@ -154,11 +163,11 @@
                 }
             }
             
-            function cargarTabla(v_idCiclo){
+            function cargarTabla(v_Ciclo, v_Anio){
                 $.ajax({
                     url:"FranjaReload.php",
                     data: {
-                            idCiclo: v_idCiclo
+                            Ciclo: v_Ciclo, Anio: v_Anio
                           },
                     type: "POST",
                     success:
@@ -187,7 +196,8 @@
                                 $("#formularioRegistrar").show();
                                 $("#btnNuevo").val("Cancelar");
                                 
-                                $("#txtidCiclo").val(respuesta.id_ciclo);
+                                $("#txtCiclo").val(respuesta.ciclo);
+                                $("#txtAnio").val(respuesta.anio);
                                 $("#txtidFranja").val(respuesta.id_franja);
                                 $("#txtCODIGO_CAR").val(respuesta.CODIGO_CAR);                        
                                 $("#txtFechaHoraIni").val(respuesta.fecha_hora_inicio);
@@ -215,17 +225,9 @@
                     <td>Ciclo</td>
                     <td>:</td>
                     <td>
-                        <select name="idCiclo" id="idCiclo">                        
                         <?php
-                            $con1 = Conectar();
-                            $sql1 = "SELECT * FROM siai_ciclos where id_ciclo= $g_IdCiclo";
-                            $q1 = mysql_query($sql1, $con1) or die ("Problemas al ejecutar la consulta");                
-                            while($datos = mysql_fetch_array($q1)){
-                                echo '<option value="'.$datos['id_ciclo'].'">'.$datos['ciclo'].'</option>';
-                            }   
-                            desconectar();
+                        echo $ciclo_actual.'/'.$anio_actual;
                         ?>
-                        </select>
                     </td>
                 </tr>
             </table>
@@ -248,13 +250,13 @@
 	<tbody> 
             <?php
             $con = Conectar();
-            $sql = "SELECT f.id_franja, f.id_ciclo, f.CODIGO_CAR, f.fecha_hora_inicio, f.fecha_hora_fin, f.comentario, f.estado,
-                    ci.ciclo,c.CODIGO_CAR, c.NOMBRE
+            $sql = "SELECT f.id_franja, f.anio, f.ciclo, f.CODIGO_CAR, f.fecha_hora_inicio, f.fecha_hora_fin, f.comentario, f.estado,
+                    c.CODIGO_CAR, c.NOMBRE
                     FROM siai_franjas_inscripcion AS f
-                    JOIN siai_ciclos AS ci ON ci.id_ciclo=f.id_ciclo 
                     JOIN carrera AS c ON c.CODIGO_CAR=f.CODIGO_CAR 
-                    WHERE f.id_ciclo=$g_IdCiclo
-                    ORDER BY ci.ciclo";
+                    WHERE f.ciclo=$ciclo_actual AND f.anio=$anio_actual
+                    ORDER BY f.ciclo";
+            
             $q = mysql_query($sql, $con) or die ("Problemas al ejecutar la consulta");                
             while($datos = mysql_fetch_array($q)){
             ?>
@@ -303,13 +305,15 @@
                 <fieldset style="display: inline;">
                     <legend id="leyenda">Registrar Nueva Franja</legend>   
                 <table width="502">
-                            <input type="hidden" readonly="readonly" id="idCicloParam" name="idCicloParam" value="<?php echo $g_IdCiclo;?>"/>
+                            <input type="hidden" readonly="readonly" id="CicloParam" name="CicloParam" value="<?php echo $ciclo_actual;?>"/>
+                            <input type="hidden" readonly="readonly" id="AnioParam" name="AnioParam" value="<?php echo $anio_actual;?>"/>
                     <tr>
                         <td width="161">Id Ciclo</td>
                         <td width="13">:</td>
                         <td width="312">
                             <input type="hidden" readonly="readonly" id="txtidFranja" name="txtidFranja" />
-                            <input type="text" readonly="readonly" id="txtidCiclo" name="txtidCiclo" />
+                            <input type="text" readonly="readonly" id="txtCiclo" name="txtCiclo" />
+                            <input type="text" readonly="readonly" id="txtAnio" name="txtAnio" />
                         </td>
                     </tr>
                     <tr>
