@@ -93,7 +93,7 @@ $url_server='http://'.$_SERVER['SERVER_NAME'].'/siai/siai_administrativo/';
                     </a>
                     
                     <ul class="dropdown-menu">
-                   	  <li><a href="<?php echo $url_server;?>ventanilla/index.php"><i class="icon-arrow-up"></i> Cargar Archivo</a></li>  
+                   	  <!--<li><a href="<?php // echo $url_server;?>ventanilla/index.php"><i class="icon-arrow-up"></i> Cargar Archivo</a></li>-->  
                           <li><a href="<?php echo $url_server;?>ventanilla/obligaciones_siai.php"><i class="icon-arrow-up"></i> Obligaciones-siai</a></li>  
                     </ul> <!--FIn de dropdown-menu -->               
                </li> <!--fin del dropdown-->

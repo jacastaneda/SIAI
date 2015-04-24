@@ -81,7 +81,7 @@
                     })
                 $('#container_buttons').click(function(){
                     //alert('di click')
-                    <?php session_destroy(); ?>
+                    <?php //session_destroy(); ?>
                     $('#target').submit();
                 })
                 $("#btnProcesar").click(function(){

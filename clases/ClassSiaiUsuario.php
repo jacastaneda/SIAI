@@ -131,26 +131,26 @@ class SiaiUsuario{
      }
 
 	 
-	 //Verificar Usuarios
-	 public function loginAlumno($usr, $pass)
-	 {
-		 $consulta="SELECT count(*) FROM siai_usuario WHERE usuario='".$usr."' AND contrasena='".$pass."' AND tipo=0;";
-		 //echo $consulta;
-          if($registro=$this->conexionSiaiUsuario->consulta($consulta))
-         {
-			 if($registro[0][0]==1)
-			 {
-				 $this->setSiaiUsuarioPorLlave($usr);
-				 return true;
-			 }
-			 else
-			 {
-				 return false;
-			 }
-		 }
-		 else
-		 {
-			 return false;
-		 }
-	 }
+    //Verificar Usuarios
+    public function loginAlumno($usr, $pass)
+    {
+       $consulta="SELECT count(*) FROM siai_usuario WHERE usuario='".$usr."' AND contrasena='".$pass."' AND tipo=0;";
+       //echo $consulta;
+        if($registro=$this->conexionSiaiUsuario->consulta($consulta))
+        {
+            if($registro[0][0]==1)
+            {
+                 $this->setSiaiUsuarioPorLlave($usr);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
