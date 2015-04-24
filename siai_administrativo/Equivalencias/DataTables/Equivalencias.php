@@ -452,7 +452,7 @@ if (isset($_SESSION['idSolicitudEqui'])) {
                     <thead>
                         <tr>
                             <th>Id Solicitud</th>
-                            <th>Id</th> 
+                            <!--<th>Id</th>--> 
                             <th>Materia Original</th>                        
                             <th>Carrera UPES</th>
                             <th>Materia UPES</th>
@@ -482,7 +482,7 @@ if (isset($_SESSION['idSolicitudEqui'])) {
                             ?>
                             <tr>    
                                 <td><?php echo $datos['idSolicitudEqui']; ?></td>
-                                <td><?php echo $datos['idCorrMateSolicitada']; ?></td>
+                                <!--<td><?php // echo $datos['idCorrMateSolicitada']; ?></td>-->
                                 <td><?php echo $datos['nombreMateriaProcedencia']; ?></td>                        
                                 <td><?php echo $datos['carreraUPES']; ?></td>			
                                 <td><?php echo $datos['materiaUPES']; ?></td>
@@ -500,7 +500,7 @@ if (isset($_SESSION['idSolicitudEqui'])) {
                     <tfoot>
                         <tr>
                             <th></th>
-                            <th></th>
+                            <!--<th></th>-->
                             <th></th>
                             <th></th>
                             <th></th>

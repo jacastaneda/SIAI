@@ -17,7 +17,7 @@ require_once 'funciones/conexiones.php';
 	<thead>
 		<tr>
 			<th>Id Solicitud</th>
-                        <th>Id</th> 
+                        <!--<th>Id</th>--> 
                         <th>Materia Original</th>                        
 			<th>Carrera UPES</th>
                         <th>Materia UPES</th>
@@ -47,7 +47,7 @@ require_once 'funciones/conexiones.php';
             ?>
 		<tr>    
                         <td><?php echo $datos['idSolicitudEqui']; ?></td>
-                        <td><?php echo $datos['idCorrMateSolicitada']; ?></td>
+                        <!--<td><?php // echo $datos['idCorrMateSolicitada']; ?></td>-->
 			<td><?php echo $datos['nombreMateriaProcedencia']; ?></td>                        
                         <td><?php echo $datos['carreraUPES']; ?></td>			
                         <td><?php echo $datos['materiaUPES']; ?></td>
@@ -65,7 +65,7 @@ require_once 'funciones/conexiones.php';
 	<tfoot>
 		<tr>
 			<th></th>
-                        <th></th>
+                        <!--<th></th>-->
                         <th></th>
                         <th></th>
 			<th></th>
