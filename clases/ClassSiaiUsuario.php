@@ -157,15 +157,14 @@ class SiaiUsuario{
     //Verificar Usuarios
     public function loginFranjaCarreraAlumno($codCarrera)
     {
-       $fecha_actual=date('yyyy-mm-dd');
+       $fecha_actual=date('Y-m-d');
        
        $consulta="SELECT count(*) FROM siai_franjas_inscripcion WHERE CODIGO_CAR='".$codCarrera."' AND tipo_permiso=1 AND fecha_hora_inicio <= '$fecha_actual' AND fecha_hora_fin >= '$fecha_actual';";
-       //echo $consulta;
+//       echo $consulta;
         if($registro=$this->conexionSiaiUsuario->consulta($consulta))
         {
-            if($registro[0][0]==1)
+            if($registro[0][0] > 0)
             {
-                 $this->setSiaiUsuarioPorLlave($usr);
                 return true;
             }
             else

@@ -101,9 +101,11 @@ function validarUsuario(usr, pass, evento)
             if (ajax.readyState == 4) {
                 respuesta = ajax.responseText;
                 respuesta = respuesta.split("resultadosiai=");
+                
                 if (respuesta.length == 2)
                 {
                     condicion = new Number(respuesta[1][0]);
+//                    alert(condicion);
                     if (condicion == 0)
                     {
                         location = "irpaso.php";
@@ -116,6 +118,10 @@ function validarUsuario(usr, pass, evento)
                     {
                         populate_and_open_modal(evento, 'modal-content-log-3');
                     }
+                    else if (condicion == 3)
+                    {
+                        populate_and_open_modal(evento, 'modal-content-log-5');
+                    }                    
                 }
                 else
                 {

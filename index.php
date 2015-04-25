@@ -400,6 +400,11 @@ if (isset($_SESSION['siai']['usuario']) && isset($_SESSION['siai']['expediente']
             <p><img data-img-src="assets/images/other_images/appbar.alert.png" class="lazy rounded_border hover_effect pull-left">Los datos ingresados no coinciden con los registrados por la Universidad Politécnica por lo cual no se puede confirmar su identidad.</p>
             <p>Si esta seguro que los datos ingresados son los correctos, actualice sus datos en las instalaciones de La Universidad</p>
         </div>
+        <div class="content-to-populate-in-modal" id="modal-content-log-5">
+            <h3>Fechas para inscripcion en l&iacute;nea</h3>
+            <p><img data-img-src="assets/images/other_images/appbar.alert.png" class="lazy rounded_border hover_effect pull-left">Los alumnos de su carrera no pueden reservar cupos en esta fecha.</p>
+            <p>Consulte las fechas en la que los alumnos de su carrera pueden reservar cupos </p>
+        </div>        
         <div class="content-to-populate-in-modal" id="modal-content-sign-7">
             <h3>Activación de Usuario</h3>
             <p><img data-img-src="assets/images/other_images/appbar.alert.png" class="lazy rounded_border hover_effect pull-left">Su usuario ya ha sido creado, pero su cuenta no ha sido activada.</p>

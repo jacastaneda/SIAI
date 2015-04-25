@@ -28,19 +28,25 @@ if(isset($_GET['usuario']) && isset($_GET['contrasena']))
 
                     $carrera= new Carrera();
                     $carrera->setCarreraPorLlave($expediente->getCodcarrera());
-                    $_SESSION['siai']['control']=serialize($siaiControl);
-                    $_SESSION['siai']['expediente']=serialize($expediente);
-                    $_SESSION['siai']['carrera']=serialize($carrera);
-                    $_SESSION['siai']['usuario']=serialize($usuario);                    
-                    
+ 
                     $control=$siaiControl->setPorAtributos($usuario->getUsuario(),$ciclo_actual,$anio);
-                    if(($control !== FALSE) && $control->getPaso() > 3)//si ya hizo reserva (EVALUADO BIEN EL ESTADO DEL CONTROL (3))
+                    $paso=0;
+                    if($control !== FALSE)
+                    {
+                        $paso=$siaiControl->getPaso();
+                    }
+//                    print_R($control);
+                    if(($control !== FALSE) && $paso > 4)//si ya hizo reserva (EVALUAR BIEN EL ESTADO DEL CONTROL (4))
                     {
                         echo "resultadosiai=0";
+                        $_SESSION['siai']['control']=serialize($siaiControl);
+                        $_SESSION['siai']['expediente']=serialize($expediente);
+                        $_SESSION['siai']['carrera']=serialize($carrera);
+                        $_SESSION['siai']['usuario']=serialize($usuario);                           
                     }
                     else//si no ha hecho reserva
                     {
-                        if($control == FALSE) //crear control
+                        if($control === FALSE) //crear control
                         {
                             $siaiControl->setUsuario($usuario->getUsuario());
                             $siaiControl->setPaso(0);
@@ -51,10 +57,18 @@ if(isset($_GET['usuario']) && isset($_GET['contrasena']))
                             $id=$siaiControl->insertSiaiControl();
                             $siaiControl->setIdControl($id);                           
                         }
-                            
+                        //si existe una franja de horario configurada para la carrera del alumno que ingresa    
                         if($usuario->loginFranjaCarreraAlumno($expediente->getCodcarrera()))
                         {
                             echo "resultadosiai=0";
+                            $_SESSION['siai']['control']=serialize($siaiControl);
+                            $_SESSION['siai']['expediente']=serialize($expediente);
+                            $_SESSION['siai']['carrera']=serialize($carrera);
+                            $_SESSION['siai']['usuario']=serialize($usuario);                                
+                        }
+                        else// si no hay una franja configurada
+                        {
+                            echo "resultadosiai=3";
                         }
                     }
                                              
