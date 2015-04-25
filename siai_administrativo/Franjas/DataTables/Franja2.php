@@ -1,20 +1,28 @@
 <?php 
     require_once 'funciones/conexiones.php';
+    include_once('../../clases/ClassControl.php');   
+    
     $ruta_assets='../../Equivalencias/DataTables/';
     session_start();
-    if(isset($_POST["ciclo"])) { 
-        $_SESSION['ciclo'] = serialize($_POST["ciclo"]); 
-    } 
-    if(isset($_SESSION['ciclo'])) { 
-        $ciclo_actual = unserialize($_SESSION['ciclo']); 
-    }
+//    if(isset($_POST["ciclo"])) { 
+//        $_SESSION['ciclo'] = serialize($_POST["ciclo"]); 
+//    } 
+//    if(isset($_SESSION['ciclo'])) { 
+//        $ciclo_actual = unserialize($_SESSION['ciclo']); 
+//    }
+//    
+//    if(isset($_POST["anio"])) { 
+//        $_SESSION['anio'] = serialize($_POST["anio"]); 
+//    } 
+//    if(isset($_SESSION['anio'])) { 
+//        $anio_actual = unserialize($_SESSION['anio']); 
+//    }    
     
-    if(isset($_POST["anio"])) { 
-        $_SESSION['anio'] = serialize($_POST["anio"]); 
-    } 
-    if(isset($_SESSION['anio'])) { 
-        $anio_actual = unserialize($_SESSION['anio']); 
-    }    
+    $control = new ClassControl();
+    $ciclo_anio_actual=$control->CicloAnioActual2();
+    
+    $ciclo_actual=$ciclo_anio_actual['ciclo'];
+    $anio_actual=$ciclo_anio_actual['anio'];
 
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
@@ -200,39 +208,43 @@
                                 $("#txtAnio").val(respuesta.anio);
                                 $("#txtidFranja").val(respuesta.id_franja);
                                 $("#txtCODIGO_CAR").val(respuesta.CODIGO_CAR);                        
-                                $("#txtFechaHoraIni").val(respuesta.fecha_hora_inicio);
-                                $("#txtFechaHoraFin").val(respuesta.fecha_hora_fin);                            
+                                $("#txtFechaHoraIni").val(format_fecha(respuesta.fecha_hora_inicio));
+                                $("#txtFechaHoraFin").val(format_fecha(respuesta.fecha_hora_fin));                            
                             }                        
                     })
             }
-		</script>
+            
+            function format_fecha(fecha)
+            {
+                partes_fecha=fecha.split('-');
+                
+                return partes_fecha[2]+'/'+partes_fecha[1]+'/'+partes_fecha[0];
+            }
+            </script>
 	</head>
 	<body id="dt_example" class="ex_highlight_row">    	
 	<div id="container" style="width:80%">
         <div class="container">
          <section>
-          <div id="container_buttons">
-              <form id="target" action="Ciclo.php" method="post">
-                    
-              </form>
-            <p><a class="a_demo_four" href="#">Volver Ciclos</a></p>
-          </div>
+  
 	</section>
         </div>    
         <div class="full_width big">
             <table>
                 <tr>
-                    <td>Ciclo</td>
-                    <td>:</td>
+                    <td><h1>Ciclo</h1></td>
+                    <td></td>
                     <td>
+                        <h1 class="well">
                         <?php
                         echo $ciclo_actual.'/'.$anio_actual;
                         ?>
+                        </h1>    
                     </td>
                 </tr>
             </table>
         </div>            
-	<div class="full_width big">Franjas horarias de acceso al sistema</div>
+	<div class="full_width big">Franjas horarias de acceso para reserva de cupos</div>
         <h1>Informaci&oacute;n</h1>
 	<div class="demo_jui" id="detalle">
         <table cellpadding="0" cellspacing="0" border="0" class="display" id="example" width="100%">    
@@ -241,8 +253,8 @@
 			<!--<th>Id Instituci&oacute;n</th>-->
                         <th>Id Franja</th>
 			<th>Carrera</th>
-                        <th>Fecha / hora Inicio</th>
-                        <th>Fecha / hora Fin</th>
+                        <th>Fecha incial</th>
+                        <th>Fecha final</th>
                         <th>Modificar</th>
                         <th>Eliminar</th>
 		</tr>
@@ -256,16 +268,21 @@
                     JOIN carrera AS c ON c.CODIGO_CAR=f.CODIGO_CAR 
                     WHERE f.ciclo=$ciclo_actual AND f.anio=$anio_actual
                     ORDER BY f.ciclo";
-            
+//            ECHO $sql;
             $q = mysql_query($sql, $con) or die ("Problemas al ejecutar la consulta");                
             while($datos = mysql_fetch_array($q)){
+                
+            $PartesFechaHoraIni = explode('-', $datos['fecha_hora_inicio']);
+            $PartesFechaHoraFin = explode('-', $datos['fecha_hora_fin']);
+            $FechaHoraIni = $PartesFechaHoraIni[2].'/'.$PartesFechaHoraIni[1].'/'.$PartesFechaHoraIni[0];
+            $FechaHoraFin = $PartesFechaHoraFin[2].'/'.$PartesFechaHoraFin[1].'/'.$PartesFechaHoraFin[0];
             ?>
 		<tr>
 			
                         <td><?php echo $datos['id_franja']; ?></td>
                         <td><?php echo $datos['NOMBRE']; ?></td>
-			<td><?php echo $datos['fecha_hora_inicio']; ?></td>
-                        <td><?php echo $datos['fecha_hora_fin']; ?></td>
+			<td><?php echo $FechaHoraIni; ?></td>
+                        <td><?php echo $FechaHoraFin; ?></td>
                         <td>
                             <img src="<?php echo $ruta_assets;?>images/refresh.png" style="cursor: pointer;" onclick="editar('<?php echo $datos['id_franja']; ?>')" />
                         </td>
@@ -338,14 +355,14 @@
                         </td>
                     </tr>   
                     <tr>
-                        <td>Fecha/hora inicial</td>
+                        <td>Fecha inicial</td>
                         <td>:</td>
                         <td>
                             <input name="txtFechaHoraIni" id="txtFechaHoraIni">
                         </td>                        
                     </tr>
                     <tr>
-                        <td>Fecha/hora final</td>
+                        <td>Fecha final</td>
                         <td>:</td>
                         <td>
                             <input name="txtFechaHoraFin" id="txtFechaHoraFin">

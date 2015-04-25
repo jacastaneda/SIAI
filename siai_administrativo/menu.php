@@ -24,7 +24,7 @@ $url_server='http://'.$_SERVER['SERVER_NAME'].'/siai/siai_administrativo/';
 
                <?php if($_SESSION["user"][0]["TIPO_USUAR"]==3 or $_SESSION["user"][0]["TIPO_USUAR"]==1 ){?> 
                 
-                <li class="dropdown"> 
+<!--                <li class="dropdown"> 
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <i class="icon-briefcase icon-white"></i> Expediente Alumno<b class="caret"></b>
                     </a>
@@ -33,7 +33,7 @@ $url_server='http://'.$_SERVER['SERVER_NAME'].'/siai/siai_administrativo/';
                      <li><a href="<?php echo $url_server;?>ExpedienteAlumno/ExpedienteAlumno.php"><i class="icon-file"></i> Crear Carnet</a></li>
                       <li><a href="<?php echo $url_server;?>ExpedienteAlumno/EditExpedienteAlumno.php"><i class="icon-edit"></i> Editar Expediente</a></li>
                     </ul>    
-               </li> 
+               </li> -->
                
                <?php }?>
                
@@ -77,7 +77,7 @@ $url_server='http://'.$_SERVER['SERVER_NAME'].'/siai/siai_administrativo/';
                       <li><a href="<?php echo $url_server;?>Equivalencias/MttoEstadoMateria.php"><i class="icon-edit"></i> Mtto estado materias</a></li>
                        <li><a href="<?php echo $url_server;?>Equivalencias/MttoUniversidades.php"><i class="icon-edit"></i> Mtto institución educación superior</a></li>
                         <li><a href="<?php echo $url_server;?>Horarios/index.php"><i class="icon-edit"></i> Mtto Horarios</a></li>
-                     <li><a href="<?php echo $url_server;?>Franjas/MttoCiclos.php"><i class="icon-edit"></i> Mtto Ciclos</a></li>   
+                     <li><a href="<?php echo $url_server;?>Franjas/MttoFranjas.php"><i class="icon-calendar"></i> Franjas horarias de acceso</a></li>   
                     </ul> <!--FIn de dropdown-menu -->   
                </li> <!--fin del dropdown-->
                
