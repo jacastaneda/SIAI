@@ -86,7 +86,7 @@
 //                            alert($('#idCicloParam').attr("value"));
                             $("#txtCiclo").attr("value", $('#CicloParam').attr("value"));
                             $("#txtAnio").attr("value", $('#AnioParam').attr("value"));
-                            $("#txtCODIGO_CAR").attr("value",'');                        
+                            $("#sltCODIGO_CAR").attr("value",'');                        
                             $("#txtFechaHoraIni").attr("value",'');
                             $("#txtFechaHoraFin").attr("value",'');
                             $("#formularioRegistrar").show();
@@ -207,7 +207,7 @@
                                 $("#txtCiclo").val(respuesta.ciclo);
                                 $("#txtAnio").val(respuesta.anio);
                                 $("#txtidFranja").val(respuesta.id_franja);
-                                $("#txtCODIGO_CAR").val(respuesta.CODIGO_CAR);                        
+                                $("#sltCODIGO_CAR").val(respuesta.CODIGO_CAR);                        
                                 $("#txtFechaHoraIni").val(format_fecha(respuesta.fecha_hora_inicio));
                                 $("#txtFechaHoraFin").val(format_fecha(respuesta.fecha_hora_fin));                            
                             }                        

@@ -36,7 +36,7 @@ if(isset($_GET['usuario']) && isset($_GET['contrasena']))
                         $paso=$siaiControl->getPaso();
                     }
 //                    print_R($control);
-                    if(($control !== FALSE) && $paso > 4)//si ya hizo reserva (EVALUAR BIEN EL ESTADO DEL CONTROL (4))
+                    if(($control !== FALSE) && $paso >= 3)//si ya hizo reserva (EVALUAR BIEN EL ESTADO DEL CONTROL (4))
                     {
                         echo "resultadosiai=0";
                         $_SESSION['siai']['control']=serialize($siaiControl);
