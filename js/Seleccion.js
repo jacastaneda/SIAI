@@ -9,6 +9,7 @@ $(document).ready(function (ev) {
 });
 function nextTask(e) {
     //alert(1);
+    $('#btnModalAceptar').attr('disabled','disabled');
     validarSeleccion(e);
 }
 function seleccionAsignatura(contenedor, indice)
@@ -102,6 +103,8 @@ function validarSeleccion(evento)
                 {
                     populate_and_open_modal(evento, 'modal-content-3');
                 }
+                
+                $('#btnModalAceptar').removeAttr('disabled');
             }
         }
         ajax.send(null);

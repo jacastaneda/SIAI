@@ -213,8 +213,10 @@ class Obligaciones {
         return $this->conexionObligaciones->actualizarRegistro($this->tALONARIO, $atributos);
     }
 
-    public function isSolvente($_carnet) {
-        $consulta = "SELECT count(*) as contador FROM siai.obligaciones where CARNET='" . $_carnet . "' and SALDOACTUA>0;";
+    public function isSolvente($_carnet, $ciclo_anio_actual) {
+        $consulta = "SELECT count(*) as contador FROM siai.obligaciones where CARNET='" . $_carnet . "' and SALDOACTUA >0 
+                    AND (CICLO <> '$ciclo_anio_actual' OR (CICLO = '$ciclo_anio_actual' AND CUOTA IN('0','1')));";
+//        echo $consulta;
         if ($registro = $this->conexionObligaciones->consulta($consulta)) {
             if ($registro[0]['contador'] > 0) {
                 return false;
@@ -225,9 +227,41 @@ class Obligaciones {
             return false;
         }
     }
+    
+    public function isSolventeCicloActual($_carnet, $ciclo_anio_actual) {
+        $consulta = "SELECT count(*) as contador FROM siai.obligaciones where CARNET='" . $_carnet . "' and SALDOACTUA >0 
+                    AND (CICLO = '$ciclo_anio_actual' AND CUOTA IN('0','1'));";
+//        echo $consulta;
+        if ($registro = $this->conexionObligaciones->consulta($consulta)) {
+            if ($registro[0]['contador'] > 0) {
+                return false;
+            } else {
+                return true;
+            }
+        } else {
+            return false;
+        }
+    }    
+    
+    public function isSolventeHistorico($_carnet, $ciclo_anio_actual) {
+        $consulta = "SELECT count(*) as contador FROM siai.obligaciones where CARNET='" . $_carnet . "' and SALDOACTUA >0 
+                    AND CICLO <> '$ciclo_anio_actual';";
+//        echo $consulta;
+        if ($registro = $this->conexionObligaciones->consulta($consulta)) {
+            if ($registro[0]['contador'] > 0) {
+                return false;
+            } else {
+                return true;
+            }
+        } else {
+            return false;
+        }
+    }      
 
-    public function listaNoSolvente($_carnet) {
-        $consulta = "SELECT * FROM siai.obligaciones where CARNET='" . $_carnet . "' and SALDOACTUA>0;";
+    public function listaNoSolvente($_carnet, $ciclo_anio_actual) {
+        $consulta = "SELECT * FROM siai.obligaciones where CARNET='" . $_carnet . "' and SALDOACTUA>0
+                    AND (CICLO <> '$ciclo_anio_actual');";
+        
         if ($registro = $this->conexionObligaciones->consulta($consulta)) {
             return $registro; 
         } else {

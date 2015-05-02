@@ -43,7 +43,10 @@
           <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
         <![endif]-->
     </head>
-
+<?php
+$solventeCicloActual=$_GET['sa'];
+$solventeHistorico=$_GET['sh'];
+?>
     <body>
 
         <div class="background-image-overlay"></div>
@@ -103,10 +106,37 @@
                                         </div> 
 
                                         <div id="principal">
-                                            <h2>Solvencia</h2>
-                                            <p>No puede iniciar el proceso de inscripción debido a que no está solvente, puede descargar he imprimir los mandamientos de pago en el siguiente enlace para su respectiva cancelación.</p>            	
-                                            <p>Una vez hecho esto podrá continuar con el proceso.</p>
-                                            <p><a href="pdf/no_solvente.php" target="blank">Descargar Mandamientos de Pago</a></p>
+                                            <?php
+                                            //Solvente de ciclos anteriores pero insolvente para ciclo actual
+                                            if($solventeCicloActual == 0 && $solventeHistorico == 1)
+                                            {
+                                                ?>
+                                                <h2>Solvencia</h2>
+                                                <p>No se ha detectado su pago de Matr&iacute;cula y primera cuota para el ciclo actual. (<small>Esto puede deberse a que no realiz&oacute; su pago en el tiempo establecido para utilizar el SIAI</small>)</p>            	
+                                                <p>Realice los pagos correspondientes utilizando su talonario y acuda a la universidad para inscribir precensialmente.</p>                                           
+                                                <?php
+                                            }
+                                            //Insolvente de ciclos anteriores pero solvente para ciclo actual
+                                            elseif($solventeCicloActual == 1 && $solventeHistorico == 0)
+                                            {
+                                                ?>
+                                                <h2>Solvencia</h2>
+                                                <p>No puede iniciar el proceso de inscripción debido a que no está solvente para los ciclos anteriores, puede descargar he imprimir los mandamientos de pago en el siguiente enlace para su respectiva cancelación.</p>            	
+                                                <p>Realice los pagos correspondientes utilizando los mandamientos de pago que puede generar en el enlace  y acuda a la universidad para inscribir precensialmente.</p>
+                                                <p><a href="pdf/no_solvente.php" target="blank">Descargar Mandamientos de Pago</a></p>                                                
+                                                <?php
+                                            }
+                                            //Insolvente de ciclos anteriores y ciclo actual
+                                            elseif($solventeCicloActual == 0 && $solventeHistorico == 0)
+                                            {
+                                                ?>
+                                                <h2>Solvencia</h2>
+                                                <p>No puede iniciar el proceso de inscripción debido a que no está solvente, puede descargar he imprimir los mandamientos de pago para los ciclos anteriores en el siguiente enlace para su respectiva cancelación.</p>            	
+                                                <p><b>Realice los pagos correspondientes utilizando su talonario y los mandamientos de pago que puede generar en el enlace y acuda a la universidad para inscribir precensialmente.</b>.</p>
+                                                <p><a href="pdf/no_solvente.php" target="blank">Descargar Mandamientos de Pago</a></p>                                                
+                                                <?php
+                                            }                                            
+                                            ?>
                                         </div>                                        
                                     </div>
                                 </div>

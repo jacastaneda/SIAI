@@ -48,18 +48,27 @@ if (isset($_SESSION['siai']['usuario']) && isset($_SESSION['siai']['expediente']
     header('Location: index.php');
 }
 
+$control= new Control();
+$control->setControlPorLlave('ANO_C');
+$anio=$control->getConsecutiv();
+$control->setControlPorLlave('CICLOACT');
+$ciclo_actual=$control->getConsecutiv();
+$ciclo_anio_actual='0'.$ciclo_actual.'/'.$anio;
+
 $solvencia = new Obligaciones();
-if (!$solvencia->isSolvente($usuario_estudiante->getCarnet())) {
+$solvenciaCicloActual=($solvencia->isSolventeCicloActual($usuario_estudiante->getCarnet(), $ciclo_anio_actual)) ? '1' : '0';
+$solvenciaHistorico=($solvencia->isSolventeHistorico($usuario_estudiante->getCarnet(), $ciclo_anio_actual)) ? '1' : '0';
+if (!$solvencia->isSolvente($usuario_estudiante->getCarnet(), $ciclo_anio_actual)) {
     //----------------------NO ESTA SOLVENTE------------------
     $beca = new Tipobeca();
     if ($beca->setTipobecaPorLlave($expediente->getTipobeca())) {
         if ($beca->getVALOR() > 0) {
             //----------------------- BECAS PARCIALES---------
-            header('Location: solvencia.php');
+            header('Location: solvencia.php?sa='.$solvenciaCicloActual.'&sh='.$solvenciaHistorico);
         }
     } else {
         //----------- SIN BECA-------------------------
-        header('Location: solvencia.php');
+        header('Location: solvencia.php?sa='.$solvenciaCicloActual.'&sh='.$solvenciaHistorico);
     }
 }
 

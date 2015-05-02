@@ -53,14 +53,13 @@ if (!$asesoriaObj->isAprobado($expediente->getCarnet())) {
     $ciclo_actual = $control->getConsecutiv();
 
     $siaiobligacion = new SiaiObligaciones();
-    //Si ya tiene registradas las obligaciones
     if ($lista = $siaiobligacion->listaPorAtributos($ciclo_actual, $anio, $siaiusuario->getUsuario())) {
         for ($i = 0; $i < count($lista); $i++) {
             $siaiobligaciones[$i] = new SiaiObligaciones();
             $siaiobligaciones[$i]->setSiaiObligacionesPorLlave($lista[$i]);
             $total+=$siaiobligaciones[$i]->getValor();
         }
-    } else {//Si no tiene un registro de obligaciones, se obtiene el listado de asignaturas en asesoria y se hace el registro en siai_obligaciones
+    } else {
         $asesoria = new Asesoria();
         $listaAsignaturas = $asesoria->getListadoAsignaturas($expediente->getCarnet(), $anio . '-01-01 00:00:00');
         for ($i = 0; $i < count($listaAsignaturas); $i++) {
@@ -76,16 +75,15 @@ if (!$asesoriaObj->isAprobado($expediente->getCarnet())) {
 
         //$siaicontrol->setIdPorAtributos($siaiusuario->getUsuario(),$ciclo_actual,$anio);	
 
-        $total = 0;
-        
-        //*****LINEAS COMENTADAS PARA QUE NO SE REGISTRE MATRICULA Y PRIMERA CUOTA EN LAS OBLIGACIONES INI******//
-         /*$matricula = new Aranceles();
+        $matricula = new Aranceles();
         $matricula->setArancelesPorLlave('MAT');
 
         $cuota = new Aranceles();
         $cuota->setArancelesPorLlave('CTA');
-        
-       $siaiobligaciones[0] = new SiaiObligaciones();
+
+        $total = 0;
+
+        $siaiobligaciones[0] = new SiaiObligaciones();
         $siaiobligaciones[0]->setAnio($anio);
         $siaiobligaciones[0]->setCiclo($ciclo_actual);
         $siaiobligaciones[0]->setIdArancel($matricula->getIdunicoara());
@@ -117,11 +115,9 @@ if (!$asesoriaObj->isAprobado($expediente->getCarnet())) {
         $siaiobligaciones[1]->setBanco(-1);
         $siaiobligaciones[1]->insertSiaiObligaciones();
 
-        $total+=$siaiobligaciones[1]->getValor();*/
-        
-        //*****LINEAS COMENTADAS PARA QUE NO SE REGISTRE MATRICULA Y PRIMERA CUOTA EN LAS OBLIGACIONES FIN******//
-        
-        $iPagos = 0;
+        $total+=$siaiobligaciones[1]->getValor();
+
+        $iPagos = 2;
         for ($i = 0; $i < count($seleccion); $i++) {
             if ($seleccion[$i]['arancel'] != false) {
                 $siaiobligaciones[$iPagos] = new SiaiObligaciones();
@@ -143,28 +139,10 @@ if (!$asesoriaObj->isAprobado($expediente->getCarnet())) {
             }
         }
 
-        $redireccion=FALSE;
-        //Si en su asesoria no ay materias con arancel de laboratorio
-        if($iPagos == 0)
-        {
-            $siaiControl->setSolvente(1);
-            $siaiControl->setPaso(5);
-            $redireccion=TRUE;
-        }
-        else// si en su asesoria tiene materias con aranceles de laboratorio
-        {
-            $siaiControl->setSolvente(0);         
-        }
-        
+        $siaiControl->setSolvente(0);
         $siaiControl->setTotalPagar($total);
         $siaiControl->setSaldo($total);
-        $siaiControl->updateSiaiControl();   
-        
-        if($redireccion)
-        {
-            header('Location: paso5.php');
-            die();
-        }
+        $siaiControl->updateSiaiControl();
     }
     $_SESSION['siai']['mandamientos']['obligaciones'] = serialize($siaiobligaciones);
 }

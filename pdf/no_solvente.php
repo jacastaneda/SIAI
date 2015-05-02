@@ -2,6 +2,7 @@
 
 session_start();
 include_once("../clases/ClassConexion.php");
+include_once("../clases/ClassControl.php");
 include_once("../clases/MetodosComunes.php");
 include_once("../clases/ClassExpedientealumno.php");
 include_once("../clases/ClassAranceles.php");
@@ -17,8 +18,15 @@ if (isset($_SESSION['siai']['usuario']) && isset($_SESSION['siai']['expediente']
     $estudiante = unserialize($_SESSION['siai']['expediente']);
     $usuario_estudiante = unserialize($_SESSION['siai']['usuario']);
 
+    $control= new Control();
+    $control->setControlPorLlave('ANO_C');
+    $anio=$control->getConsecutiv();
+    $control->setControlPorLlave('CICLOACT');
+    $ciclo_actual=$control->getConsecutiv();
+    $ciclo_anio_actual='0'.$ciclo_actual.'/'.$anio;    
+    
     $obligaciones = new Obligaciones();
-    $obligacionesArray = $obligaciones->listaNoSolvente($usuario_estudiante->getCarnet());
+    $obligacionesArray = $obligaciones->listaNoSolvente($usuario_estudiante->getCarnet(), $ciclo_anio_actual);
 
     // Creación del objeto de la clase heredada
     $pdf = new PDF_Code128();
