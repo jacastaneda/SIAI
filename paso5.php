@@ -193,7 +193,7 @@ if ($siaiControl->getSolvente() == 1 && $iObligaciones) {
                                                     $siaiControl->updateSiaiControl();
                                                     $_SESSION['siai']['control'] = serialize($siaiControl);
                                                     ?>
-                                                    <p>Haz terminado el proceso de inscripción con exito, ahora puedes descargar he imprimir tu hoja de inscripción en el siguiente enlace.</p>            	
+                                                    <p>Haz terminado el proceso de inscripción con exito, ahora puedes descargar e imprimir tu hoja de inscripción en el siguiente enlace.</p>            	
                                                     <p><a href="pdf/hoja_inscripcion.php" target="blank">Descargar Hoja de Inscripción</a></p>
                                                     <br />
                                                     <iframe src="estudiante/subir_fotos.php" frameborder="0" scrolling="no" width="70%" height="210"></iframe>

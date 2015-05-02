@@ -121,7 +121,7 @@ $solventeHistorico=$_GET['sh'];
                                             {
                                                 ?>
                                                 <h2>Solvencia</h2>
-                                                <p>No puede iniciar el proceso de inscripción debido a que no está solvente para los ciclos anteriores, puede descargar he imprimir los mandamientos de pago en el siguiente enlace para su respectiva cancelación.</p>            	
+                                                <p>No puede iniciar el proceso de inscripción debido a que no está solvente para los ciclos anteriores, puede descargar e imprimir los mandamientos de pago en el siguiente enlace para su respectiva cancelación.</p>            	
                                                 <p>Realice los pagos correspondientes utilizando los mandamientos de pago que puede generar en el enlace  y acuda a la universidad para inscribir precensialmente.</p>
                                                 <p><a href="pdf/no_solvente.php" target="blank">Descargar Mandamientos de Pago</a></p>                                                
                                                 <?php
@@ -131,7 +131,7 @@ $solventeHistorico=$_GET['sh'];
                                             {
                                                 ?>
                                                 <h2>Solvencia</h2>
-                                                <p>No puede iniciar el proceso de inscripción debido a que no está solvente, puede descargar he imprimir los mandamientos de pago para los ciclos anteriores en el siguiente enlace para su respectiva cancelación.</p>            	
+                                                <p>No puede iniciar el proceso de inscripción debido a que no está solvente, puede descargar e imprimir los mandamientos de pago para los ciclos anteriores en el siguiente enlace para su respectiva cancelación.</p>            	
                                                 <p><b>Realice los pagos correspondientes utilizando su talonario y los mandamientos de pago que puede generar en el enlace y acuda a la universidad para inscribir precensialmente.</b>.</p>
                                                 <p><a href="pdf/no_solvente.php" target="blank">Descargar Mandamientos de Pago</a></p>                                                
                                                 <?php
