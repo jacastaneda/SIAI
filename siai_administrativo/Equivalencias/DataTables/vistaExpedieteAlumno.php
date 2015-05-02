@@ -1,5 +1,7 @@
 <?php
     require_once 'funciones/conexiones.php';
+    $anio=(isset($_GET['anio'])) ? $_GET['anio'] : date('Y');
+//    echo $anio;
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
@@ -111,7 +113,7 @@
                     ea.APELLCASAD
                     from expedientealumno ea
                     where ea.tipoingres= 'EQ'
-                    AND ea.FECHA_INGR >= STR_TO_DATE('01/01/2012','%d/%m/%Y')
+                    AND EXTRACT(YEAR FROM ea.FECHA_INGR) ='$anio'
                     order by ea.FECHA_INGR, ea.carnet";
             $q = mysql_query($sql, $con) or die ("Problemas al ejecutar la consulta");                
             while($datos = mysql_fetch_array($q)){
