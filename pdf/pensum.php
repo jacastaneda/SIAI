@@ -48,7 +48,7 @@ if(isset($_SESSION['siai']['expediente']))
 	$materias=$equivalencias->getListadoEquivalenciasPropuestas($expediente->getCarnet());
 	for($i=0; $i<count($materias); $i++)
 	{
-		$equivalencias_propuestas[$materias[$i]]=true;
+            $equivalencias_propuestas[$materias[$i]]=true;
 	}
 	
 	
@@ -56,13 +56,14 @@ if(isset($_SESSION['siai']['expediente']))
 	$carrera->setCarreraPorLlave($expediente->getCodcarrera());
 	// Creación del objeto de la clase heredada
 	$pdf = new PDF();
-	$pdf->setEncabezado('UNIVERSIDAD POLITÉCNICA DE EL SALVADOR',utf8_decode($carrera->getNombre()));
+	$pdf->setEncabezado('UNIVERSIDAD POLITÉCNICA DE EL SALVADOR',utf8_decode($carrera->getNombre()).' plan: '.$expediente->getCodigoPla());
 	$pdf->setPie($expediente->getCarnet());
 	
 	$pdf->AliasNbPages();
 	$pdf->AddPage('L','Letter');
 	$pdf->SetFont('Arial','',8);
 	
+        //Numero de materias por ciclo
 	for($ii=0;$ii<5;$ii++)
 	{
 		$pdf->SetFont('Arial','',8);

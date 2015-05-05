@@ -3,6 +3,11 @@ session_start();
 if (isset($_SESSION['siai']['usuario']) && isset($_SESSION['siai']['expediente']) && isset($_SESSION['siai']['control'])) {
     header('Location: irPaso.php');
 }
+require_once("clases/ClassConexion.php");
+include_once("clases/ClassFranjas.php");
+$franja = new Franjas();
+$franjas=$franja->getListadoFranjasCarreras();
+//print_r($franjas);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,6 +46,8 @@ if (isset($_SESSION['siai']['usuario']) && isset($_SESSION['siai']['expediente']
 
         <!-- place your extra custom styles in this file -->
         <link href="assets/css/custom.css" rel="stylesheet">
+        <!--<link href="css/general.css" rel="stylesheet" type="text/css" />-->
+        <link href="css/franjas.css" rel="stylesheet" type="text/css" />
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -73,7 +80,10 @@ if (isset($_SESSION['siai']['usuario']) && isset($_SESSION['siai']['expediente']
                     <li id="menu-item-text" class="menu-item scroll"><a href="#text">Iniciar sesi&oacute;n</a></li>
                     <li id="menu-item-grid" class="menu-item scroll"><a href="#grid">Activar cuenta</a></li>
                     <li id="menu-item-carousel" class="menu-item scroll"><a href="#carousel">Tutorial</a></li>
-                    <li id="menu-item-contact" class="menu-item scroll"><a href="#contact">Contacto</a></li>          
+                    <li id="menu-item-contact" class="menu-item scroll"><a href="#contact">Contacto</a></li>   
+                    <li id="" class="menu-item" onclick="populate_and_open_modal(event, 'modal-content-horarios');">
+                        <a href="javascript:void(0)"><i class="glyphicon glyphicon-calendar"></i> Horarios para reserva de materias</a>
+                    </li>   
                 </ul><!-- #main-menu -->
 
             </section><!-- #left-sidebar -->
@@ -93,6 +103,7 @@ if (isset($_SESSION['siai']['usuario']) && isset($_SESSION['siai']['expediente']
                                 <h1>Sistema de Inscripci&oacute;n de materias en l&iacute;nea UPES</h1>
                                 <p>Realiza el tr&aacute;mite desde la comodidad de tu casa.</p>
                                 <p><a href="#carousel" class="link-scroll btn btn-outline-inverse btn-lg">M&aacute;s informaci&oacute;n aqu&iacute;</a></p>
+                                <!--<p><a href="javasacript:void(0)" onclick="populate_and_open_modal(event, 'modal-content-horarios');" class="link-scroll btn btn-outline-inverse btn-lg">Consulta de horarios de inscripci&oacute;n</a></p>-->
                             </section>
 
                         </div><!-- .col-sm-10 -->
@@ -265,7 +276,42 @@ if (isset($_SESSION['siai']['usuario']) && isset($_SESSION['siai']['expediente']
                                 </div><!-- .item -->
 
                             </div><!-- .carousel-inner -->
+                            
+                            <div class="content-to-populate-in-modal" id="modal-content-horarios">
+                                <h3>Horarios para reserva de cupos</h3>
+                                <div id="tabla">
+                                    <table id="tbl_franjas" width="95%" style="background:#FFFFFF;" align="center" border="0" cellpadding="3" cellspacing="0" bordercolor="#999999"  >
+                                        <thead>
+                                            <tr>
+                                                <th>Carrera</th>
+                                                <th>Fecha inicial</th>
+                                                <th>Fecha final</th>
+                                            </tr>                                        
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            foreach($franjas as $f)
+                                            {
+                                                $pfi=explode('-', $f['fecha_hora_inicio']);
+                                                $fi=$pfi[2].'/'.$pfi[1].'/'.$pfi[0];
+                                                
+                                                $pff=explode('-', $f['fecha_hora_fin']);
+                                                $ff=$pff[2].'/'.$pff[1].'/'.$pff[0];                                                
+                                                ?>
+                                                <tr>
+                                                    <td><?php echo $f['NOMBRE'];?></td>
+                                                    <td><?php echo $fi;?></td>
+                                                    <td><?php echo $ff;?></td>
+                                                </tr>
+                                                <?php
+                                            }
+                                            ?>
+                                        </tbody>
 
+                                    </table>
+                                </div>
+                            </div>
+                            
                             <!-- Controls -->
                             <a class="left carousel-control" href="#features-carousel" data-slide="prev"></a>
                             <a class="right carousel-control" href="#features-carousel" data-slide="next"></a>
