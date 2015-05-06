@@ -77,7 +77,10 @@ $url_server='http://'.$_SERVER['SERVER_NAME'].'/siai/siai_administrativo/';
                       <li><a href="<?php echo $url_server;?>Equivalencias/MttoEstadoMateria.php"><i class="icon-edit"></i> Mtto estado materias</a></li>
                        <li><a href="<?php echo $url_server;?>Equivalencias/MttoUniversidades.php"><i class="icon-edit"></i> Mtto institución educación superior</a></li>
                         <li><a href="<?php echo $url_server;?>Horarios/index.php"><i class="icon-edit"></i> Mtto Horarios</a></li>
-                     <li><a href="<?php echo $url_server;?>Franjas/MttoFranjas.php"><i class="icon-calendar"></i> Franjas horarias de acceso</a></li>   
+                     <li><a href="<?php echo $url_server;?>Franjas/MttoFranjas.php"><i class="icon-calendar"></i> Franjas horarias de acceso</a></li>
+                     <li><a href="<?php echo $url_server;?>Accesos/MttoCatedraticos.php"><i class="icon-user"></i> Catedr&aacute;ticos</a></li>
+                     <li><a href="<?php echo $url_server;?>Accesos/MttoCoordinadores.php"><i class="icon-briefcase"></i> Coordinadores de carreras</a></li>
+                     <li><a href="<?php echo $url_server;?>Accesos/MttoUsuarios.php"><i class="icon-user"></i> Usuarios del m&oacute;dulo administrativo</a></li>
                     </ul> <!--FIn de dropdown-menu -->   
                </li> <!--fin del dropdown-->
                
