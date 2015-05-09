@@ -1,6 +1,27 @@
 <?php
     require_once '../../Franjas/Datatables/funciones/conexiones.php';
     $ruta_assets='../../Equivalencias/DataTables/';  
+    
+    function format_tipo_usuar($int_tipo)
+    {
+        switch($int_tipo)
+        {
+            case 1:
+                $tipo='Administrador';
+                break;
+             case 2:
+                $tipo='Coordinador';
+                break;
+            case 3:
+                $tipo='Registro acad&eacute;mico';
+                break;
+            case 4:
+                $tipo='Contabilidad';
+                break;            
+        }
+        
+        return $tipo;
+    }
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
@@ -35,11 +56,11 @@
                     $("#formularioRegistrar").hide();
 		    var oTable = $('#example').dataTable({"oLanguage":{"sUrl": "<?php echo $ruta_assets;?>media/language/es_ES.txt"}} );               
                     $("#btnNuevo").click(function(){
-                        $("#leyenda").html("Registrar catedratico");
+                        $("#leyenda").html("Registrar Usuario");
                         procedimiento = "nuevo";
                         num = num + 1;
 
-                        if ($("#btnNuevo").val()=="Agregar Catedratico"){
+                        if ($("#btnNuevo").val()=="Agregar Usuario"){
                             //sltidCargo,txtNombres,txtApellidos,txtEmail, sltEstado
                             $("#sltidCargo").attr("value",'1');
                             $("#txtNombres").attr("value",'');
@@ -51,7 +72,7 @@
                         }
                         else if ($("#btnNuevo").val()=="Cancelar"){
                             $("#formularioRegistrar").hide();
-                            $("#btnNuevo").val("Agregar Catedratico");
+                            $("#btnNuevo").val("Agregar Usuario");
                         }
                         else{
                             alert("otro")
@@ -66,7 +87,7 @@
                     if(procedimiento == "nuevo")
                     {
                         $.ajax({
-                        url: "guardarCatedratico.php",
+                        url: "guardarUsuario.php",
                         type: "POST",
                         data: datos,
                         success:
@@ -82,7 +103,7 @@
                     {
 //                        alert(datos)
                         $.ajax({
-                        url: "editarCatedratico.php",
+                        url: "editarUsuario.php",
                         type: "POST",
                         data: datos,
                         success:
@@ -97,34 +118,14 @@
                   })
                });
             
-//            function eliminar(idCatedratico)
-//            {
-//                if(confirm("Esta seguro que desea eliminar este catedratico?"))
-//                {
-//                    //cedula=85150447
-//                    var v_idCatedratico = "idCatedratico="+idCatedratico;                    
-//                    $.ajax({
-//                        url:"eliminarCatedratico.php",
-//                        data: v_idCatedratico,
-//                        type: "POST",
-//                        success:
-//                            function(respuesta)
-//                            {
-//                                alert(respuesta);
-//                                location.reload(true);
-//                            }                        
-//                    })
-//                }
-//            }
-            
-            function editar(idCatedratico)
+            function editar(idUsuarioo)
             {
-                $("#leyenda").html("Actualizar Catedratico");
+                $("#leyenda").html("Actualizar Usuario");
                 procedimiento = "editar";
-                var v_idCatedratico = "idCatedratico="+idCatedratico;                    
+                var v_idUsuario = "idUsuarioo="+idUsuarioo;                    
                     $.ajax({
-                        url:"buscarCatedratico.php",
-                        data: v_idCatedratico,
+                        url:"buscarUsuario.php",
+                        data: v_idUsuario,
                         type: "POST",
                         dataType: "json",
                         success:
@@ -151,9 +152,10 @@
     <table cellpadding="0" cellspacing="0" border="0" class="display" id="example" width="100%">    
             <thead>
                     <tr>
-                        <th>Nombres</th>
-                        <th>Apellidos</th>
-                        <th>Email</th>
+                        <th>Usuario</th>
+                        <th>Nombre</th>
+                        <th>Catedr&aacute;tico</th>
+                        <th>Tipo</th>
                         <th>Modificar</th>
                         <!--<th>Eliminar</th>-->
                     </tr>
@@ -161,15 +163,17 @@
             <tbody> 
                 <?php
                 $con = Conectar();
-                $sql = "SELECT *
-                    FROM proc_catedraticos";
+                $sql = "SELECT * FROM usuarios AS u
+                        LEFT OUTER JOIN proc_catedraticos AS C ON u.idCatedratico=c.idCatedratico";
+                
                 $q = mysql_query($sql, $con) or die ("Problemas al ejecutar la consulta");                
                 while($datos = mysql_fetch_array($q)){
                 ?>
                     <tr>
-                            <td><?php echo utf8_encode($datos['Nombres']); ?></td>
-                            <td><?php echo utf8_encode($datos['Apellidos']); ?></td>
-                            <td><?php echo $datos['email']; ?></td>
+                            <td><?php echo utf8_encode($datos['CODIGO']); ?></td>
+                            <td><?php echo utf8_encode($datos['NOMBRE']); ?></td>
+                            <td><?php echo utf8_encode($datos['Nombres'].' '.$datos['Apellidos']); ?></td>
+                            <td><?php echo format_tipo_usuar($datos['TIPO_USUAR']); ?></td>
                             <td>
                                 <img src="<?php echo $ruta_assets;?>images/refresh.png" style="cursor: pointer;" onclick="editar('<?php echo $datos['idCatedratico']; ?>')" />
                             </td>
@@ -187,6 +191,7 @@
                     <th></th>
                     <th></th>
                     <th></th>
+                    <th></th>
                     <!--<th></th>-->                    
                 </tr>
             </tfoot>
@@ -196,36 +201,49 @@
 		</div>
             
             <div id="botonNuevo" align="center">
-            <input type="button" id="btnNuevo" name="btnNuevo" value="Agregar Catedratico" />
+            <input type="button" id="btnNuevo" name="btnNuevo" value="Agregar Usuario" />
         </div>
         <br />
         <?php
         ?>    
         
         <div class="arrastable" id="formularioRegistrar" align="center"  style='width:550px; margin: 0 auto 0 auto; background-color: #fff; border:2px solid cornflowerblue; padding:15px; text-align:justify; border-radius:8px; box-shadow: 1px 1px 12px #555; z-index: 1000;'>
-            <div id="procedimiento" align="center" style=' border-radius:8px 8px 0 0; background-color: #000000; color:white; '>Franja horaria</div>
+            <div id="procedimiento" align="center" style=' border-radius:8px 8px 0 0; background-color: #000000; color:white; '>Usuario</div>
             <form name="frmRegistrar" id="frmRegistrar">
                 <fieldset style="display: inline;">
-                    <legend id="leyenda">Registrar Nuevo Catedr&aacute;tico</legend>   
+                    <legend id="leyenda">Registrar Nuevo Usuario</legend>   
                 <table width="502">
                     <tr>
-                        <td width="161">Id Catedr&aacute;tico</td>
+                        <td width="161">Usuario</td>
                         <td width="13">:</td>
                         <td width="312">
-                            <input type="text" readonly="readonly" id="txtidCatedratico" name="txtidCatedratico" />
+                            <input type="text" id="txtCODIGO" name="txtCODIGO" />
                         </td>
                     </tr>
                     <tr>
-                        <td>Cargo</td>
+                        <td>Tipo de usuario</td>
                         <td>:</td>
                         <td>
-                            <select name="sltidCargo" id="sltidCargo">                        
+                            <select name="sltTipoUsuar" id="sltTipoUsuar">
+                                <option value='1'><?php echo format_tipo_usuar(1);?></option>
+                                <option value='2'><?php echo format_tipo_usuar(2);?></option>
+                                <option value='3'><?php echo format_tipo_usuar(3);?></option>
+                                <option value='4'><?php echo format_tipo_usuar(4);?></option>
+                            </select>
+                        </td>                        
+                    </tr>                     
+                    <tr>
+                        <td>Catedr&aacute;tico</td>
+                        <td>:</td>
+                        <td>
+                            <select name="sltidCatedratico" id="sltidCatedratico"> 
+                                <option value="">Ninguno</option>
                             <?php
                                 $con2 = Conectar();
-                                $sql2 = "SELECT * FROM proc_cargo where LENGTH(NOMBRE) > 0";
+                                $sql2 = "SELECT * FROM proc_catedraticos where Estado='1'";
                                 $q2 = mysql_query($sql2, $con2) or die ("Problemas al ejecutar la consulta");                
                                 while($datos2 = mysql_fetch_array($q2)){
-                                    echo '<option value="'.$datos2['idCargo'].'">'.$datos2['Nombre'].'</option>';
+                                    echo '<option value="'.$datos2['idCatedratico'].'">'.utf8_encode($datos2['Nombres'].' '.$datos2['Apellidos']).'</option>';
                                 }   
                                 desconectar();
                             ?>
@@ -233,26 +251,26 @@
                         </td>
                     </tr>                     
                     <tr>
-                        <td>Nombres</td>
+                        <td>Nombre</td>
                         <td>:</td>
                         <td>
-                           <input type="text" id="txtNombres" name="txtNombres" />
+                           <input type="text" id="txtNombre" name="txtNombre" />
                         </td>
-                    </tr>   
+                    </tr>    
                     <tr>
-                        <td>Apellidos</td>
+                        <td>Contrase&ntilde;a</td>
                         <td>:</td>
                         <td>
-                           <input type="text" id="txtApellidos" name="txtApellidos" />
+                            <input type="password" id="txtClave" name="txtClave" />
                         </td>
-                    </tr>   
+                    </tr>      
                     <tr>
-                        <td>Email</td>
+                        <td>Confirmar la Contrase&ntilde;a</td>
                         <td>:</td>
                         <td>
-                            <input type="text" id="txtEmail" name="txtEmail" />
-                        </td>                        
-                    </tr>   
+                            <input type="password" id="txtClaveConfirm" name="txtClaveConfirm" />
+                        </td>
+                    </tr>                         
                     <tr>
                         <td>Estado</td>
                         <td>:</td>

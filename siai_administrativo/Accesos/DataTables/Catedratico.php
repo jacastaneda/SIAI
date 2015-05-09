@@ -203,7 +203,7 @@
         ?>    
         
         <div class="arrastable" id="formularioRegistrar" align="center"  style='width:550px; margin: 0 auto 0 auto; background-color: #fff; border:2px solid cornflowerblue; padding:15px; text-align:justify; border-radius:8px; box-shadow: 1px 1px 12px #555; z-index: 1000;'>
-            <div id="procedimiento" align="center" style=' border-radius:8px 8px 0 0; background-color: #000000; color:white; '>Franja horaria</div>
+            <div id="procedimiento" align="center" style=' border-radius:8px 8px 0 0; background-color: #000000; color:white; '>Catedr&aacute;tico</div>
             <form name="frmRegistrar" id="frmRegistrar">
                 <fieldset style="display: inline;">
                     <legend id="leyenda">Registrar Nuevo Catedr&aacute;tico</legend>   
