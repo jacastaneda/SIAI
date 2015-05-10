@@ -27,7 +27,7 @@
 <html>
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset= UTF-8" />		
-                <title>Catedr&aacute;tico</title>
+                <title>Usuario</title>
                 <link href="../../bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
                 <link href="../../bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">       
                 <link href="../../bootstrap/css/bootstrap-responsive.css" rel="stylesheet" />                
@@ -93,9 +93,13 @@
                         success:
                             function(r)
                             {
-                                alert(r);
-                                $("#loader").hide();
-                                location.reload(true);
+                                var partesresp=r.split(',');
+                                alert(partesresp[1]);
+                                $("#loader").hide();                                
+                                if(partesresp[0] == 1)
+                                {
+                                    location.reload(true);    
+                                }
                             }
                         })
                     }
@@ -109,35 +113,39 @@
                         success:
                             function(r)
                             {
-                                alert(r);
-                                $("#loader").hide();
-                                location.reload(true);
+                                var partesresp=r.split(',');
+                                alert(partesresp[1]);
+                                $("#loader").hide();                                
+                                if(partesresp[0] == 1)
+                                {
+                                    location.reload(true);    
+                                }                                
                             }
                     })
                     }
                   })
                });
             
-            function editar(idUsuarioo)
+            function editar(codigo)
             {
                 $("#leyenda").html("Actualizar Usuario");
                 procedimiento = "editar";
-                var v_idUsuario = "idUsuarioo="+idUsuarioo;                    
+                var v_codigo = "codigo="+codigo;                    
                     $.ajax({
                         url:"buscarUsuario.php",
-                        data: v_idUsuario,
+                        data: v_codigo,
                         type: "POST",
                         dataType: "json",
                         success:
                             function(respuesta)
                             {
+                                //txtCODIGO,sltTipoUsuar,sltidCatedratico,txtNombre,sltEstado
                                 $("#formularioRegistrar").show();
                                 $("#btnNuevo").val("Cancelar");
-                                $("#txtidCatedratico").val(respuesta.id_catedratico);   
-                                $("#sltidCargo").val(respuesta.id_cargo);
-                                $("#txtNombres").val(respuesta.nombres);
-                                $("#txtApellidos").val(respuesta.apellidos);
-                                $("#txtEmail").val(respuesta.email);
+                                $("#txtCODIGO").val(respuesta.codigo);   
+                                $("#sltTipoUsuar").val(respuesta.tipo_usuar);
+                                $("#sltidCatedratico").val(respuesta.id_catedratico);
+                                $("#txtNombre").val(respuesta.nombre);
                                 $("#sltEstado").val(respuesta.estado);                                
                             }                        
                     })
@@ -175,7 +183,7 @@
                             <td><?php echo utf8_encode($datos['Nombres'].' '.$datos['Apellidos']); ?></td>
                             <td><?php echo format_tipo_usuar($datos['TIPO_USUAR']); ?></td>
                             <td>
-                                <img src="<?php echo $ruta_assets;?>images/refresh.png" style="cursor: pointer;" onclick="editar('<?php echo $datos['idCatedratico']; ?>')" />
+                                <img src="<?php echo $ruta_assets;?>images/refresh.png" style="cursor: pointer;" onclick="editar('<?php echo $datos['CODIGO']; ?>')" />
                             </td>
 <!--                            <td>                          
                                 <img src="<?php echo $ruta_assets;?>images/delete.png" style="cursor: pointer;" onclick="eliminar('<?php echo $datos['idCatedratico']; ?>')" />

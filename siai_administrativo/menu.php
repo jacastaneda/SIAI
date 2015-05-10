@@ -116,12 +116,11 @@ $url_server='http://'.$_SERVER['SERVER_NAME'].'/siai/siai_administrativo/';
                     </ul> <!--FIn de dropdown-menu -->               
                </li> <!--fin del dropdown-->
                <?php }?>
-               
             </ul> <!--fin del NAV -->
               
               
-              <p class="navbar-text pull-right"> Conectado como: 
-              <a href="#" class="navbar-link"><strong><?php echo $_SESSION["user"][0]["usuario"]; ?></strong> </a>
+              <p class="navbar-text pull-right">Conectado como: 
+              <a href="<?php echo $url_server;?>Accesos/MttoPerfil.php" class="navbar-link"><strong><?php echo $_SESSION["user"][0]["usuario"]; ?></strong> </a>
               <i class="icon-user icon-white"></i> 
               <a href="<?php echo $url_server;?>login/salir.php" class="icon-off icon-white"></a> </p>
             </div> 

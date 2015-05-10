@@ -1,25 +1,23 @@
 <?php
-
     $codigo = $_POST['codigo'];
     require_once '../../Franjas/Datatables/funciones/conexiones.php';
     $con = Conectar();
-    $sql = "SELECT * FROM usuarios WHERE CODIGO = '$codigo'";
+    $sql = "SELECT * FROM usuarios AS u
+                        LEFT OUTER JOIN proc_catedraticos AS C ON u.idCatedratico=c.idCatedratico WHERE CODIGO = '$codigo'";
     $q = mysql_query($sql, $con);
     $info = array();
     while($datos = mysql_fetch_array($q))
     {
 //        print_r($datos);
         $codigo = $datos['CODIGO'];
-        $id_catedratico = $datos['idCatedratico'];
+        $email = $datos['email'];
         $nombre = utf8_encode($datos['NOMBRE']);
-        $tipo_usuar= $datos['TIPO_USUAR'];
-        $estado = $datos['Estado'];
+        $id_catedratico= $datos['idCatedratico'];
     }
     desconectar();
     $info['codigo'] = $codigo;
-    $info['id_catedratico'] = $id_catedratico;
+    $info['email'] = $email;
     $info['nombre'] = $nombre;  
-    $info['tipo_usuar'] = $tipo_usuar;    
-    $info['estado'] = $estado;  
+    $info['id_catedratico'] = $id_catedratico;  
     echo json_encode($info);
 ?>
