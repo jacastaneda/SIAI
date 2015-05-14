@@ -54,7 +54,7 @@ if ($siaiObligaciones->updateSiaiObligaciones()) {
             //echo $usuario->getEmail();
             $email->setAdress($usuario->getEmail());
             $email->setSubject('Tus pagos han sido registrados - SIAI');
-            $email->setBody('Ya puedes continuar con el proceso de inscripción', 'Ya puedes continuar con el proceso de inscripción');
+            $email->setBody('Ya puedes continuar con el proceso de inscripción', 'Ya puedes continuar con el proceso de inscripción<br/><a href="http://'.$_SERVER['SERVER_NAME'].'/siai">Continuar con el proceso</a>');
             $email->send();
         }
     }

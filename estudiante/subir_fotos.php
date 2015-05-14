@@ -124,7 +124,7 @@ function enviar()
     	<img src="<?php echo $destino; ?>" width="150" height="200" />
     </div><?php else: ?>
     <form action="subir_fotos.php" method="post" enctype="multipart/form-data" id="formulario">
-        <p><input type="file" id="foto" name="foto" /></p>
+        <p><input type="file" id="foto" name="foto" accept="image/*"/></p>
         <p><input type="button" onclick="javascript: enviar()" value="Subir Foto" /></p>
         <input name="action" type="hidden" value="upload" /> 
     </form>

@@ -265,7 +265,7 @@
                     </tr>                    
                     <tr>
                         <td nowrap  colspan="2" align="right" >
-                            <input type="button" id="btnProcesar" name="btnProcesar" value="Agregar" />
+                            <input type="button" id="btnProcesar" name="btnProcesar" value="Guardar" />
                         </td>
                         <td align="center">
                             <input type="reset" align="center"  name="btnBorrar" id="btnBorrar" value="Limp&iacute;ar Formulario" />

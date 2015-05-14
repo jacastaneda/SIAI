@@ -82,7 +82,7 @@ $franjas=$franja->getListadoFranjasCarreras();
                     <li id="menu-item-carousel" class="menu-item scroll"><a href="#carousel">Tutorial</a></li>
                     <li id="menu-item-contact" class="menu-item scroll"><a href="#contact">Contacto</a></li>   
                     <li id="" class="menu-item" onclick="populate_and_open_modal(event, 'modal-content-horarios');">
-                        <a href="javascript:void(0)"><i class="glyphicon glyphicon-calendar"></i> Horarios para reserva de materias</a>
+                        <a href="javascript:void(0)"><i class="glyphicon glyphicon-calendar"></i> Horarios para selecci&oacute;n de materias y horarios</a>
                     </li>   
                 </ul><!-- #main-menu -->
 

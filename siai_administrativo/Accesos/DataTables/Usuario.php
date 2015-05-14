@@ -61,11 +61,12 @@
                         num = num + 1;
 
                         if ($("#btnNuevo").val()=="Agregar Usuario"){
-                            //sltidCargo,txtNombres,txtApellidos,txtEmail, sltEstado
-                            $("#sltidCargo").attr("value",'1');
-                            $("#txtNombres").attr("value",'');
-                            $("#txtApellidos").attr("value",'');
-                            $("#txtEmail").attr("value",'');
+                            $("#txtCODIGO").attr("value",'');
+                            $("#txtCODIGO").removeAttr("readonly");
+                            $("#sltidCatedratico").attr("value",'');
+                            $("#txtNombre").attr("value",'');
+                            $("#txtClave").attr("value",'');
+                            $("#txtClaveConfirm").attr("value",'');
                             $("#sltEstado").attr("value",'1');
                             $("#formularioRegistrar").show();
                             $("#btnNuevo").val("Cancelar");
@@ -146,7 +147,8 @@
                                 $("#sltTipoUsuar").val(respuesta.tipo_usuar);
                                 $("#sltidCatedratico").val(respuesta.id_catedratico);
                                 $("#txtNombre").val(respuesta.nombre);
-                                $("#sltEstado").val(respuesta.estado);                                
+                                $("#sltEstado").val(respuesta.estado);  
+                                $("#txtCODIGO").attr("readonly",'readonly');
                             }                        
                     })
             }
@@ -291,7 +293,7 @@
                     </tr>                    
                     <tr>
                         <td nowrap  colspan="2" align="right" >
-                            <input type="button" id="btnProcesar" name="btnProcesar" value="Agregar" />
+                            <input type="button" id="btnProcesar" name="btnProcesar" value="Guardar" />
                         </td>
                         <td align="center">
                             <input type="reset" align="center"  name="btnBorrar" id="btnBorrar" value="Limp&iacute;ar Formulario" />

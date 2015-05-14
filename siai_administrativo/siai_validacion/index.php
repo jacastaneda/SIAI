@@ -96,7 +96,7 @@ for ($i = 0; $i < count($carnets); $i++) {
                                             <td><?php echo $pendientes[$i][0]; ?></td>
                                             <td><?php echo $pendientes[$i][1]; ?></td>
                                             <td><?php echo $pendientes[$i][2]; ?></td>
-                                            <td class="opciones"><a href="detalle_inscripcionN.php?estudiante=<?php echo $pendientes[$i][0]; ?>" class="btn "><!--<img src="imagenes/btn_detalle.png" class="opcion" title="Ver detalle de inscripción" border="0"/> --><span class=" icon-edit"></span>  Edit</a>  <a href="pdf/pensum.php?estudiante=<?php echo $pendientes[$i][0]; ?>" target="_blank" class="btn"> <!--<img src="imagenes/btn_pensum_mini.png" class="opcion" title="Ver pensum del alumno" /> --> <span class="icon-eye-open "></span> Pensum</a></td>
+                                            <td class="opciones"><a href="detalle_inscripcionN.php?estudiante=<?php echo $pendientes[$i][0]; ?>" class="btn "><!--<img src="imagenes/btn_detalle.png" class="opcion" title="Ver detalle de inscripción" border="0"/> --><span class=" icon-edit"></span>  Validar</a>  <a href="pdf/pensum.php?estudiante=<?php echo $pendientes[$i][0]; ?>" target="_blank" class="btn"> <!--<img src="imagenes/btn_pensum_mini.png" class="opcion" title="Ver pensum del alumno" /> --> <span class="icon-eye-open "></span> Pensum</a></td>
                                         </tr>
 <?php endfor; ?>
                                 </table>
