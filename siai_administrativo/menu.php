@@ -116,6 +116,18 @@ $url_server='http://'.$_SERVER['SERVER_NAME'].'/siai/siai_administrativo/';
                     </ul> <!--FIn de dropdown-menu -->               
                </li> <!--fin del dropdown-->
                <?php }?>
+               
+               <?php if($_SESSION["user"][0]["TIPO_USUAR"]==1){?>
+               <li class="dropdown"> 
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="icon-search icon-white"></i> Consultas<b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="<?php echo $url_server;?>Reportes/VistaCuposReservados.php"><i class="icon-arrow-up"></i> Cupos reservados</a></li>  
+                    </ul> <!--FIn de dropdown-menu -->               
+               </li> <!--fin del dropdown-->
+               <?php }?>
+               
             </ul> <!--fin del NAV -->
               
               

@@ -23,8 +23,8 @@ class ClassControl extends Conexion
 					$ciclo=$c["CONSECUTIV"];
 				}
 		
-			
-			return "0".$ciclo."/".$anio;
+			 $ret=(strlen($ciclo) == 1) ? "0".$ciclo."/".$anio : $ciclo."/".$anio ;
+			return $ret;
 		}
                 
 	public function CicloAnioActual2()
