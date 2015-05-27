@@ -159,6 +159,8 @@ function activarCuenta(carnet, pass, repass, anio, mes, dia, email, evento)
         if (carnet == "" || carnet == null || email == "" || email == null || !validarEmail(email)) {
             populate_and_open_modal(evento, 'modal-content-sign-6');
         } else {
+            $('#btnSignin').attr('disabled','disabled');
+            $('#btnSignin').text('Enviando...');
             //setMensaje('Activación de Usuario', '<p>Su cuenta de usuario esta siendo creada favor espere a que este proceso termine</p><div style="width:150px; margin-left:500px;"><div class="boton" onclick="javascript: ocultarVentana();">Aceptar</div></div>');
             carnet = carnet.toUpperCase()
             pass = calcMD5(pass);
@@ -200,6 +202,9 @@ function activarCuenta(carnet, pass, repass, anio, mes, dia, email, evento)
                     {
                         populate_and_open_modal(evento, 'modal-content-sign-3');
                     }
+                    
+                    $('#btnSignin').removeAttr('disabled');
+                    $('#btnSignin').text('Activar Cuenta');                    
                 }
             }
             ajax.send(null);

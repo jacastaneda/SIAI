@@ -243,7 +243,7 @@ if (!$asesoriaObj->isAprobado($expediente->getCarnet())) {
                             <p id="estado_seleccion">Selección de Asignaturas</p>
                             <p id="estado_horario">Impresión de Horario</p>
                             <p id="estado_pagos" class="posicion_actual">Mandamiento de Pagos</p>
-                            <p id="estado_inscripcion">Hoja de Inscripción</p>
+                            <p id="estado_inscripcion">Boleta de Inscripción</p>
                         </div>
                     </div>         
                 </ul><!-- #main-menu -->
@@ -296,7 +296,7 @@ if (!$asesoriaObj->isAprobado($expediente->getCarnet())) {
                                         </div>
                                         <p><a href="pdf/mandamientos.php" target="blank">Descargar Mandamientos de Pago PDF</a>
                                         </p>
-                                        <p>Podras imprimir tu hoja de inscripción hasta dentro de un máximo de 72 horas despues de realizado tu pago.</p>
+                                        <p>Podr&aacute;s imprimir tu boleta de inscripci&oacute;n hasta dentro de un m&aacute;ximo de 72 horas despu&eacute;s de realizado tu pago.</p>
                                     </div>
                                 </div>
                             </section>

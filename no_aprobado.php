@@ -101,7 +101,7 @@
 
                                         <div id="principal">
                                             <h2>Materias por Aprobar</h2>
-                                            <p>Previo a continuar con el proceso de inscripción, las asignaturas que ha reservado deben ser aprobadas por el coordinador de su carrera.</p>
+                                            <p>Previo a continuar con el proceso de inscripción, las asignaturas que han seleccionado deben ser aprobadas por el coordinador de su carrera.</p>
                                             <p>Una vez sean aprobadas, recibirá un correo notificándole que puede continuar con el proceso.</p>
                                         </div>                                        
                                     </div>

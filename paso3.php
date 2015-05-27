@@ -266,7 +266,7 @@ for ($i = 0; $i <= count($clases); $i++) {
                             <p id="estado_seleccion">Selección de Asignaturas</p>
                             <p id="estado_horario"  class="posicion_actual">Impresión de Horario</p>
                             <p id="estado_pagos">Mandamiento de Pagos</p>
-                            <p id="estado_inscripcion">Hoja de Inscripción</p>
+                            <p id="estado_inscripcion">Boleta de Inscripción</p>
                         </div>
                     </div>         
                 </ul><!-- #main-menu -->

@@ -154,7 +154,7 @@ if ($siaiControl->getSolvente() == 1 && $iObligaciones) {
                             <p id="estado_seleccion">Selección de Asignaturas</p>
                             <p id="estado_horario">Impresión de Horario</p>
                             <p id="estado_pagos">Mandamiento de Pagos</p>
-                            <p id="estado_inscripcion" class="posicion_actual">Hoja de Inscripción</p>
+                            <p id="estado_inscripcion" class="posicion_actual">Boleta de Inscripción</p>
                         </div>
                     </div>         
                 </ul><!-- #main-menu -->
@@ -193,8 +193,8 @@ if ($siaiControl->getSolvente() == 1 && $iObligaciones) {
                                                     $siaiControl->updateSiaiControl();
                                                     $_SESSION['siai']['control'] = serialize($siaiControl);
                                                     ?>
-                                                    <p>Haz terminado el proceso de inscripción con exito, ahora puedes descargar e imprimir tu hoja de inscripción en el siguiente enlace.</p>            	
-                                                    <p><a href="pdf/hoja_inscripcion.php" target="blank">Descargar Hoja de Inscripción</a></p>
+                                                    <p>Haz terminado el proceso de inscripci&oacute;n con &eacute;xito, ahora puedes descargar e imprimir tu boleta de inscripción en el siguiente enlace.</p>            	
+                                                    <p><a href="pdf/hoja_inscripcion.php" target="blank">Descargar Boleta de Inscripci&oacute;n</a></p>
                                                     <br />
                                                     <iframe src="estudiante/subir_fotos.php" frameborder="0" scrolling="no" width="70%" height="210"></iframe>
                                                 <?php else: ?>

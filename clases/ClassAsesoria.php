@@ -18,11 +18,12 @@ class Asesoria {
     private $arancel;
     private $cupo;
     private $ciclo;
+    private $ciclo_siai;
     //Objeto gestionador de base de datos
     private $conexionAsesoria;
 
     public function __construct() {
-        $atributos = array("CODIGO_ASI", "MATRICULA", "SECCION", "CODIGO_USU", "FECHA_INGR", "MARCAR", "ARANCEL", "CUPO", "CICLO");
+        $atributos = array("CODIGO_ASI", "MATRICULA", "SECCION", "CODIGO_USU", "FECHA_INGR", "MARCAR", "ARANCEL", "CUPO", "CICLO", "CICLO_SIAI");
         $this->conexionAsesoria = new MySQL();
         $this->conexionAsesoria->setNombreTabla("asesoria");
         $this->conexionAsesoria->setNombreAtributos($atributos);
@@ -30,7 +31,7 @@ class Asesoria {
     }
 
     public function setAsesoriaPorLlave($carnet, $asignatura, $matricula) {
-        $consulta = "SELECT CARNET, CODIGO_ASI, MATRICULA, SECCION, CODIGO_USU, FECHA_INGR, MARCAR, ARANCEL, CUPO, CICLO FROM asesoria WHERE CARNET='" . $carnet . "' AND CODIGO_ASI='" . $asignatura . "' AND MATRICULA='" . $matricula . "'";
+        $consulta = "SELECT CARNET, CODIGO_ASI, MATRICULA, SECCION, CODIGO_USU, FECHA_INGR, MARCAR, ARANCEL, CUPO, CICLO_SIAI FROM asesoria WHERE CARNET='" . $carnet . "' AND CODIGO_ASI='" . $asignatura . "' AND MATRICULA='" . $matricula . "'";
         if ($registro = $this->conexionAsesoria->consulta($consulta)) {
             $this->carnet = $registro[0][0];
             $this->codigoasi = $registro[0][1];
@@ -42,6 +43,7 @@ class Asesoria {
             $this->arancel = $registro[0][7];
             $this->cupo = $registro[0][8];
             $this->ciclo = $registro[0][9];
+            $this->ciclo_siai = $registro[0][10];
             return true;
         } else {
             return false;
@@ -51,7 +53,7 @@ class Asesoria {
     //metodos Establecer(set)
     public function setConexion($cnx) {
         $this->conexionAsesoria = $cnx;
-        $atributos = array("CODIGO_ASI", "MATRICULA", "SECCION", "CODIGO_USU", "FECHA_INGR", "MARCAR", "ARANCEL", "CUPO", "CICLO");
+        $atributos = array("CODIGO_ASI", "MATRICULA", "SECCION", "CODIGO_USU", "FECHA_INGR", "MARCAR", "ARANCEL", "CUPO", "CICLO", "CICLO_SIAI");
         $this->conexionAsesoria->setNombreTabla("asesoria");
         $this->conexionAsesoria->setNombreAtributos($atributos);
         $this->conexionAsesoria->setNombreLlavePrimaria("CARNET");
@@ -97,8 +99,22 @@ class Asesoria {
         $this->ciclo = $CICLO;
     }
 
+    public function setCicloSiai($CICLO_SIAI) {
+        $control = new Control();
+        $control->setControlPorLlave('ANO_C');
+        $anio = $control->getConsecutiv();
+        $control->setControlPorLlave('CICLOACT');
+        $ciclo_actual = $control->getConsecutiv();
+        if (strlen($ciclo_actual) < 2) {
+            $ciclo_actual = '0' . $ciclo_actual;
+        }
+        $ciclo = $ciclo_actual . '/' . $anio;
+
+        $this->ciclo_siai=$ciclo;
+    }    
+    
     public function borrarRegistros($carnet) {
-        $consulta = "SELECT CARNET, CODIGO_ASI, MATRICULA, SECCION, CODIGO_USU, FECHA_INGR, MARCAR, ARANCEL, CUPO, CICLO FROM asesoria WHERE CARNET='" . $carnet . "' AND MARCAR='0'";
+        $consulta = "SELECT CARNET, CODIGO_ASI, MATRICULA, SECCION, CODIGO_USU, FECHA_INGR, MARCAR, ARANCEL, CUPO, CICLO, CICLO_SIAI FROM asesoria WHERE CARNET='" . $carnet . "' AND MARCAR='0'";
         if ($asesorias = $this->conexionAsesoria->consulta($consulta)) {
             $control = new Control();
             $control->setControlPorLlave('ANO_C');
@@ -169,6 +185,10 @@ class Asesoria {
     public function getCiclo() {
         return $this->ciclo;
     }
+    
+    public function getCicloSiai() {
+        return $this->ciclo_siai;
+    }    
 
     //metodo generador de listado
     public function getListadoAsignaturas($carnet, $fecha_inicio) {
@@ -195,7 +215,7 @@ class Asesoria {
     public function transaccionAsesoria() {
 
 
-        $consulta = "INSERT INTO asesoria (CARNET, CODIGO_ASI, MATRICULA, SECCION, CODIGO_USU, FECHA_INGR, MARCAR, ARANCEL, CUPO, CICLO) VALUES ('" . $this->carnet . "', '" . $this->codigoasi . "', '" . $this->matricula . "', '" . $this->seccion . "', 0, '" . $this->fechaingr . "', 0, '" . $this->arancel . "', 0, '" . $this->ciclo . "');";
+        $consulta = "INSERT INTO asesoria (CARNET, CODIGO_ASI, MATRICULA, SECCION, CODIGO_USU, FECHA_INGR, MARCAR, ARANCEL, CUPO, CICLO, CICLO_SIAI) VALUES ('" . $this->carnet . "', '" . $this->codigoasi . "', '" . $this->matricula . "', '" . $this->seccion . "', 0, '" . $this->fechaingr . "', 0, '" . $this->arancel . "', 0, '" . $this->ciclo . "', '" . $this->ciclo_siai . "');";
 
         //echo $consulta;
         //exit();
@@ -213,7 +233,7 @@ class Asesoria {
     }
 
     public function insertAsesoria() {
-        $atributos = array($this->codigoasi, $this->matricula, $this->seccion, $this->codigousu, $this->fechaingr, $this->marcar, $this->arancel, $this->cupo, $this->ciclo);
+        $atributos = array($this->codigoasi, $this->matricula, $this->seccion, $this->codigousu, $this->fechaingr, $this->marcar, $this->arancel, $this->cupo, $this->ciclo, $this->ciclo_siai);
         //descomentarear la l�nea siguiente y comentarear la anterior si la llave primaria no es autoincremental
         //$atributos=array( $this->carnet , $this->codigoasi , $this->matricula , $this->seccion , $this->codigousu , $this->fechaingr , $this->marcar , $this->arancel , $this->cupo , $this->ciclo );
 
@@ -221,7 +241,7 @@ class Asesoria {
     }
 
     public function updateAsesoria() {
-        $atributos = array($this->codigoasi, $this->matricula, $this->seccion, $this->codigousu, $this->fechaingr, $this->marcar, $this->arancel, $this->cupo, $this->ciclo);
+        $atributos = array($this->codigoasi, $this->matricula, $this->seccion, $this->codigousu, $this->fechaingr, $this->marcar, $this->arancel, $this->cupo, $this->ciclo, $this->ciclo_siai);
         return $this->conexionAsesoria->actualizarRegistro($this->carnet, $atributos);
     }
 

@@ -244,7 +244,7 @@
                 </tr>
             </table>
         </div>            
-	<div class="full_width big">Franjas horarias de acceso para reserva de cupos</div>
+            <div class="full_width big">Franjas horarias de acceso para inicio de solicitud de inscripci&oacute;n</div>
         <h1>Informaci&oacute;n</h1>
 	<div class="demo_jui" id="detalle">
         <table cellpadding="0" cellspacing="0" border="0" class="display" id="example" width="100%">    

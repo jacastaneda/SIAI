@@ -162,7 +162,7 @@ function activarCuenta(carnet,pass, repass ,anio, mes, dia, email)
 						if(condicion==0)
 						{
 							limpiarVentana();
-							setMensaje('Activación de Usuario','<p>Su cuenta de usuario ha sido creada con exito.</p><p>Se ha enviado un correo con el enlace de verificación, Usted podrá iniciar sesión despues de haber realizado la verificación</p><div style="width:150px; margin-left:500px;"><div class="boton" onclick="javascript: ocultarVentana();">Aceptar</div></div>');
+							setMensaje('Activación de Usuario','<p>Su cuenta de usuario ha sido creada con &eacute;xito.</p><p>Se ha enviado un correo con el enlace de verificación, Usted podrá iniciar sesión despues de haber realizado la verificación</p><div style="width:150px; margin-left:500px;"><div class="boton" onclick="javascript: ocultarVentana();">Aceptar</div></div>');
 						}
 						else if(condicion==1)
 						{

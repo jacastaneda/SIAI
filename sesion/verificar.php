@@ -144,7 +144,7 @@ $usuario->setActivado(1);
         </div>
         <div class="content-to-populate-in-modal" id="modal-content-3">
             <h3>Verificador</h3>
-            <p><img data-img-src="../assets/images/other_images/appbar.alert.png" class="lazy rounded_border hover_effect pull-left">Usuario Activado con Exito.</p>
+            <p><img data-img-src="../assets/images/other_images/appbar.alert.png" class="lazy rounded_border hover_effect pull-left">Usuario Activado con &Eacute;xito.</p>
         </div>
         <!-- Javascripts
         ================================================== -->

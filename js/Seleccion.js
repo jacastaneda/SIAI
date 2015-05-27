@@ -66,12 +66,16 @@ function validarSeleccion(evento)
     //alert(url)
     if (iSeleccion != 0)
     {
+        $('#btnModalAceptar').attr('disabled','disabled');
+        $('#btnModalCancelarSeleccion').attr('disabled','disabled');
+        $('#btnModalAceptar').text('Enviando...');        
         var ajax;
         ajax = objetoAjax();
         ajax.open("GET", url, true);
         ajax.onreadystatechange = function () {
             if (ajax.readyState == 4) {
                 respuesta = ajax.responseText;
+//                alert(respuesta)
                 respuesta = respuesta.split("resultadosiai=");
                 if (respuesta.length == 2)
                 {
@@ -97,7 +101,7 @@ function validarSeleccion(evento)
                             }
                         }
                         ajax2.send(null);
-                    }
+                    }                   
                 }
                 else
                 {
@@ -105,6 +109,8 @@ function validarSeleccion(evento)
                 }
                 
                 $('#btnModalAceptar').removeAttr('disabled');
+                $('#btnModalCancelarSeleccion').removeAttr('disabled');
+                $('#btnModalAceptar').text('Aceptar');  
             }
         }
         ajax.send(null);

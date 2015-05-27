@@ -74,8 +74,8 @@ $solventeHistorico=$_GET['sh'];
                             <p id="estado_actualizar" class="posicion_actual">Solvencia</p>
                             <p id="estado_seleccion">Selección de Asignaturas</p>
                             <p id="estado_horario">Impresión de Horario</p>
-                            <p id="estado_pagos">Mandamiento de Pagos</p>
-                            <p id="estado_inscripcion">Hoja de Inscripción</p>
+                            <p id="estado_pagos">MandamienHojato de Pagos</p>
+                            <p id="estado_inscripcion">Boleta de Inscripción</p>
                         </div>
                     </div>         
                 </ul><!-- #main-menu -->

@@ -251,7 +251,7 @@ $_SESSION['siai']['horarios'] = serialize($horarios);
                             <p id="estado_seleccion" class="posicion_actual">Selección de Asignaturas</p>
                             <p id="estado_horario">Impresión de Horario</p>
                             <p id="estado_pagos">Mandamiento de Pagos</p>
-                            <p id="estado_inscripcion">Hoja de Inscripción</p>
+                            <p id="estado_inscripcion">Boleta de Inscripción</p>
                         </div>
                     </div>         
                 </ul><!-- #main-menu -->
@@ -374,7 +374,7 @@ $_SESSION['siai']['horarios'] = serialize($horarios);
             <p>si es así, haga clic en el botón “Aceptar”, de lo contrario, haga clic en el botón “Cancelar” y cambie su selección ya que este paso es irreversible.</p>
 
             <button type="button" id="btnModalAceptar" style="color: #003399" onclick="nextTask(event)">Aceptar</button>
-            <button type="button" data-dismiss="modal" aria-hidden="true" style="color: #600">Cancelar</button>
+            <button type="button" id="btnModalCancelarSeleccion" data-dismiss="modal" aria-hidden="true" style="color: #600">Cancelar</button>
         </div>
         <!-- Javascripts
         ================================================== -->

@@ -32,9 +32,8 @@ if (isset($_SESSION['sai']['seleccion'])) {
     $siaiControl->updateSiaiControl();
     $email = new Email();
     $email->setAdress($usuario->getEmail());
-    //$email->setAdress('denys.urquilla@capillasmemoriales.com');
     $email->setSubject(utf8_decode('Informe de estado de su inscripción'));
-    $email->setBody('<p>Su inscripción ha sido validada por el coordinador de su carrera</p><p>Ahora podrá continuar con el proceso de inscripción</p><a href="http://'.$_SERVER['SERVER_NAME'].'/siai">Continuar con el proceso</a>', 'Su inscripción ha sido validada por el coordinador de su carrera. Ahora podrá continuar con el proceso de inscripción, ingresando a wwww.upes.edu.sv/siai');
+    $email->setBody('<p>Su inscripción ha sido validada por el coordinador de su carrera</p><p>Ahora podrá continuar con el proceso de inscripción</p><a href="http://'.$_SERVER['SERVER_NAME'].'/siai">Continuar con el proceso</a>', 'Su inscripción ha sido validada por el coordinador de su carrera. Ahora podrá continuar con el proceso de inscripción');
     echo "este es" . $email->send();
 }
 //echo ($_SESSION['sai']['siaiusuario']);

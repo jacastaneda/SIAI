@@ -57,7 +57,7 @@ if(isset($_SESSION['siai']['expediente']) && isset($_SESSION['siai']['seleccion'
     // Salto de línea
     $pdf->Ln(5);
 	// Descripción
-    $pdf->Cell(0,10,utf8_decode('HOJA DE INSCRIPCIÓN DE ASIGNATURAS'),0,0,'C');
+    $pdf->Cell(0,10,utf8_decode('BOLETA DE INSCRIPCIÓN DE ASIGNATURAS'),0,0,'C');
 	$pdf->Ln(15);
 	
 	$pdf->Cell(190,5,utf8_decode('Ciclo: '.$ciclo.'    Fecha: '.getFechaCorta()),0,0,'R',0);

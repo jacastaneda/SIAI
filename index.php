@@ -155,14 +155,14 @@ $franjas=$franja->getListadoFranjasCarreras();
                                 </div>
                                 <div class="form-group">
                                     <label class="control-label col-md-1">Día</label> 
-                                    <div class="col-md-3"><select id="dia" name="dia" class="form-control">
+                                    <div class="col-md-3"><select id="dia" name="dia" style="background-color: black" class="form-control">
                                             <?php for ($i = 1; $i <= 31; $i++): ?>
                                                 <option><?php echo $i; ?></option>  
                                             <?php endfor; ?>
                                         </select>
                                     </div>
                                     <label class="control-label col-md-1">Mes</label> 
-                                    <div class="col-md-4"><select id="mes" name="mes" class="form-control" onchange="javascript: getDias();">
+                                    <div class="col-md-4"><select id="mes" name="mes" class="form-control" style="background-color: black" onchange="javascript: getDias();">
                                             <option value="1">Enero</option>
                                             <option value="2">Febrero</option>
                                             <option value="3">Marzo</option>
@@ -179,7 +179,7 @@ $franjas=$franja->getListadoFranjasCarreras();
                                     </div>
                                     <label class="control-label col-md-1">Año</label> 
                                     <div class="col-md-2">
-                                        <select id="anio" name="anio" onchange="javascript: getDias();">
+                                        <select id="anio" style="background-color: black" name="anio" onchange="javascript: getDias();">
                                             <?php for ($i = date('Y') - 100; $i <= date('Y'); $i++): ?>
                                                 <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
                                             <?php endfor; ?>   
@@ -278,7 +278,7 @@ $franjas=$franja->getListadoFranjasCarreras();
                             </div><!-- .carousel-inner -->
                             
                             <div class="content-to-populate-in-modal" id="modal-content-horarios">
-                                <h3>Horarios para reserva de cupos</h3>
+                                <h4>Horarios para iniciar solicitud de inscripci&oacute;n</h4>
                                 <div id="tabla">
                                     <table id="tbl_franjas" width="95%" style="background:#FFFFFF;" align="center" border="0" cellpadding="3" cellspacing="0" bordercolor="#999999"  >
                                         <thead>
@@ -327,50 +327,13 @@ $franjas=$franja->getListadoFranjasCarreras();
                         <h1 class="section-title">Contacto</h1>
 
                         <!-- CONTACT DETAILS -->
-                        <div class="contact-details col-sm-5 col-md-3">
-                            <p>123A,<br/>Molestie Lorem Avenue,<br/>Aliquam<br/>AAA0010</p>
-                            <p>Tel: (+20) 21 301 524</p>
-                            <p><a href="mailto:info@loremipsum.com">info@loremipsum.com</a></p>
+                        <div class="contact-detailss col-sm-12 col-md-12">
+                            <p><h3>Si tiene alguna duda o sugerencia por favor utilice los siguientes datos de contacto:</h3></p>
+                            <p>123A,<br/>Redondel Don Rua,<br/>San Salvador<br/></p>
+                            <p>Tel: (+503) 2256-7890</p>
+                            <p><a href="mailto:administradorsistemasiai@gmail.com">administradorsistemasiai@gmail.com</a></p>
                         </div>
                         <!-- END: CONTACT DETAILS -->
-
-                        <!-- CONTACT FORM -->
-                        <div class="col-sm-7 col-md-9">
-                            <!-- IMPORTANT: change the email address at the top of the assets/php/mail.php file to the email address that you want this form to send to -->
-                            <form class="form-style validate-form clearfix" action="assets/php/mail.php" method="POST" role="form">
-
-                                <!-- form left col -->
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <input type="text" class="text-field form-control validate-field required" data-validation-type="string" id="form-name" placeholder="Full Name" name="name">
-                                    </div>  
-                                    <div class="form-group">
-                                        <input type="email" class="text-field form-control validate-field required" data-validation-type="email" id="form-email" placeholder="Email Address" name="email">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="tel" class="text-field form-control validate-field phone" data-validation-type="phone" id="form-contact-number" placeholder="Contact Number" name="contact_number">
-                                    </div>  
-                                    <div class="form-group text-right">
-                                        <img id="form-captcha-img" src="assets/php/form_captcha/captcha_img.php">
-                                        <input type="text" class="text-field form-control validate-field required" data-validation-type="captcha" id="form-captcha" placeholder="Enter text" name="captcha">
-                                        <span id="form-captcha-refresh" class="fa fa-refresh" title="Reload"></span>
-                                    </div>                 
-                                </div><!-- end: form left col -->
-
-                                <!-- form right col -->
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <textarea placeholder="Message..." class="form-control validate-field required" name="message"></textarea>
-                                    </div> 
-                                    <div class="form-group">
-                                        <img src="assets/images/theme_images/loader-form.GIF" class="form-loader">
-                                        <button type="submit" class="btn btn-sm btn-outline-inverse">Submit</button>
-                                    </div> 
-                                    <div class="form-group form-general-error-container"></div>           
-                                </div><!-- end: form right col -->
-
-                            </form>
-                        </div><!-- end: CONTACT FORM -->
 
                     </div><!-- .content-wrapper -->
                 </article><!-- .section-wrapper -->
@@ -414,7 +377,7 @@ $franjas=$franja->getListadoFranjasCarreras();
             <p><img data-img-src="assets/images/other_images/appbar.alert.png" class="lazy rounded_border hover_effect pull-left">Ingrese Usuario y Contraseña para poder iniciar sesión</p>
         </div>
         <div class="content-to-populate-in-modal" id="modal-content-log-2">
-            <h3>Error de inicio de sesion</h3>
+            <h3>Error de inicio de sesi&oacute;n</h3>
             <p><img data-img-src="assets/images/other_images/appbar.noentry.png" class="lazy rounded_border hover_effect pull-left">El usuario o la contraseña ingresada no son correctas</p>
 <!--            <p><a href="">¿He olvidado mi contraseña?</a></p>-->
         </div>
@@ -423,7 +386,7 @@ $franjas=$franja->getListadoFranjasCarreras();
             <p><img data-img-src="assets/images/other_images/appbar.alert.png" class="lazy rounded_border hover_effect pull-left">Aun no has activado tu cuenta, busca en tu correo electrónico un mensaje con el vinculo de activación</p>
         </div>
         <div class="content-to-populate-in-modal" id="modal-content-log-4">
-            <h3>Error de inicio de sesion</h3>
+            <h3>Error de inicio de sesi&oacute;n</h3>
             <p><img data-img-src="assets/images/other_images/appbar.alert.png" class="lazy rounded_border hover_effect pull-left">Ingrese Usuario y Contraseña para poder iniciar sesión</p>
         </div>
         <div class="content-to-populate-in-modal" id="modal-content-sign-1">
@@ -433,7 +396,7 @@ $franjas=$franja->getListadoFranjasCarreras();
         </div>
         <div class="content-to-populate-in-modal" id="modal-content-sign-2">
             <h3>Activación de Usuario</h3>
-            <p><img data-img-src="assets/images/other_images/appbar.alert.png" class="lazy rounded_border hover_effect pull-left">Su cuenta de usuario ha sido creada con exito.</p>
+            <p><img data-img-src="assets/images/other_images/appbar.alert.png" class="lazy rounded_border hover_effect pull-left">Su cuenta de usuario ha sido creada con &eacute;xito.</p>
             <p>Se ha enviado un correo con el enlace de verificación, Usted podrá iniciar sesión despues de haber realizado la verificación</p>
         </div>
         <div class="content-to-populate-in-modal" id="modal-content-sign-3">
@@ -448,8 +411,8 @@ $franjas=$franja->getListadoFranjasCarreras();
         </div>
         <div class="content-to-populate-in-modal" id="modal-content-log-5">
             <h3>Fechas para inscripcion en l&iacute;nea</h3>
-            <p><img data-img-src="assets/images/other_images/appbar.alert.png" class="lazy rounded_border hover_effect pull-left">Los alumnos de su carrera no pueden reservar cupos en esta fecha.</p>
-            <p>Consulte las fechas en la que los alumnos de su carrera pueden reservar cupos </p>
+            <p><img data-img-src="assets/images/other_images/appbar.alert.png" class="lazy rounded_border hover_effect pull-left">Los alumnos de su carrera no pueden iniciar su solicitud de inscripci&oacute;n en esta fecha.</p>
+            <p>Consulte las fechas en la que los alumnos de su carrera pueden iniciar solicitud de inscripci&oacute;n</p>
         </div>        
         <div class="content-to-populate-in-modal" id="modal-content-sign-7">
             <h3>Activación de Usuario</h3>
