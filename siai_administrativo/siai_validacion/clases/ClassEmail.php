@@ -12,14 +12,15 @@ class Email
     {
 		$this->phpmailer=new PHPMailer();
 		$this->phpmailer->IsSMTP(); 
-		$this->phpmailer->Host="mail.grupopabe.com";
-		$this->phpmailer->SMTPDebug  = 2;  
+                $this->phpmailer->CharSet = 'UTF-8';
+		$this->phpmailer->Host="mail.politecnica.edu.sv";
+		$this->phpmailer->SMTPDebug  = false;  
 		$this->phpmailer->SMTPAuth   = true;
-                $this->phpmailer->CharSet   = 'UTF-8';
+		$this->phpmailer->Host="mail.politecnica.edu.sv";
 		$this->phpmailer->Port       = 49; 
-		$this->phpmailer->Username   = "denysurquilla@grupopabe.com";
-		$this->phpmailer->Password   = "123456789"; 
-		$this->phpmailer->SetFrom('denysurquilla@grupopabe.com', 'SIAI-POLITECNICA');
+		$this->phpmailer->Username   = "siai@politecnica.edu.sv";
+		$this->phpmailer->Password   = "Clave2013"; 
+		$this->phpmailer->SetFrom('siai@politecnica.edu.sv', 'SIAI-POLITECNICA');
 	}
 	
 	public function setAdress($adress)
