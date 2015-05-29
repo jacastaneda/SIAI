@@ -174,7 +174,7 @@ if ($siaiControl->getSolvente() == 1 && $iObligaciones) {
                                                 <a id="btnSalir" href="cerrar_sesion.php"><i class="fa fa-power-off fa-1x"> Salir</i></a>
                                             </div>
                                             <div class="col-md-3 col-sm-3 col-xs-3">
-                                                <a id="btnPensum" href="pdf/pensum.php" target="blank"><i class="fa fa-file-archive-o fa-1x"> Pensum</i></a>
+                                                <a id="btnPensum" href="pdf/pensum.php" target="_blank"><i class="fa fa-file-archive-o fa-1x"> Pensum</i></a>
                                             </div>     
                                             <div class="col-md-3 col-sm-3 col-xs-3">
                                                 <div id="btnAnterior" style="opacity:0.4;" ><i class="fa fa-arrow-circle-o-left fa-1x"> Anterior</i></div>
@@ -194,7 +194,7 @@ if ($siaiControl->getSolvente() == 1 && $iObligaciones) {
                                                     $_SESSION['siai']['control'] = serialize($siaiControl);
                                                     ?>
                                                     <p>Haz terminado el proceso de inscripci&oacute;n con &eacute;xito, ahora puedes descargar e imprimir tu boleta de inscripción en el siguiente enlace.</p>            	
-                                                    <p><a href="pdf/hoja_inscripcion.php" target="blank">Descargar Boleta de Inscripci&oacute;n</a></p>
+                                                    <p><a href="pdf/hoja_inscripcion.php" target="_blank">Descargar Boleta de Inscripci&oacute;n</a></p>
                                                     <br />
                                                     <iframe src="estudiante/subir_fotos.php" frameborder="0" scrolling="no" width="70%" height="210"></iframe>
                                                 <?php else: ?>

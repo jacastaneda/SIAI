@@ -135,7 +135,7 @@ if (isset($_SESSION['siai']['usuario']) && isset($_SESSION['siai']['expediente']
         if ($obligacion['TIPO_ARANC'] == 'MAT') {
             $pdf->Cell(100, 5, utf8_decode('Despues de la fecha de vencimiento su matricula tendrá un recargo de 10%'), 0, 0, 'L', 0);
         } else {
-            $pdf->Cell(100, 5, utf8_decode('Despues de la fecha de vencimiento su matricula tendrá un recargo de $8.00 dolares'), 0, 0, 'L', 0);
+            $pdf->Cell(100, 5, utf8_decode('Despues de la fecha de vencimiento su cuota tendrá un recargo de $8.00 dolares'), 0, 0, 'L', 0);
         }
 
         $pdf->SetFont('Arial', '', 9);
@@ -146,13 +146,28 @@ if (isset($_SESSION['siai']['usuario']) && isset($_SESSION['siai']['expediente']
         $pdf->Cell(10, 5, '', 0, 0, 'L', 0);
 
         $fechaObj = new DateTime($obligacion['FECHA_VENC']);
+        
+        $fechaAct=new DateTime();
+        
+        $valor_pagar=number_format($obligacion['VALOR'], 2);
+        if($fechaAct > $fechaObj)
+        {
+            if($obligacion['TIPO_ARANC'] == 'MAT')
+            {
+                $valor_pagar*=1.1;
+            }
+            else
+            {
+                $valor_pagar+=8;
+            }
+        }    
 
         $pdf->Cell(90, 5, utf8_decode('Vencimiento ' . $fechaObj->format('d/m/Y')), 0, 0, 'L', 0);
-        $pdf->Cell(40, 5, utf8_decode('Total a Pagar: $' . number_format($obligacion['VALOR'], 2)), 0, 0, 'L', 0);
+        $pdf->Cell(40, 5, utf8_decode('Total a Pagar: $' . number_format($valor_pagar, 2)), 0, 0, 'L', 0);
         $pdf->SetFont('Arial', '', 9);
         $pdf->Ln(7);
         $pdf->Cell(20, 5, '', 0, 0, 'L', 0);
-        $pdf->Cell(45, 5, utf8_decode('Total a Pagar: $' . number_format($obligacion['VALOR'], 2)), 0, 0, 'L', 0);
+        $pdf->Cell(45, 5, utf8_decode('Total a Pagar: $' . number_format($valor_pagar, 2)), 0, 0, 'L', 0);
         $pdf->Cell(10, 5, '', 0, 0, 'L', 0);
 
         $npe = '';

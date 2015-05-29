@@ -89,7 +89,7 @@
                                                 <a id="btnSalir" href="cerrar_sesion.php"><i class="fa fa-power-off fa-1x"> Salir</i></a>
                                             </div>
                                             <div class="col-md-3 col-sm-3 col-xs-3">
-                                                <a id="btnPensum" href="pdf/pensum.php" target="blank"><i class="fa fa-file-archive-o fa-1x"> Pensum</i></a>
+                                                <a id="btnPensum" href="pdf/pensum.php" target="_blank"><i class="fa fa-file-archive-o fa-1x"> Pensum</i></a>
                                             </div>     
                                             <div class="col-md-3 col-sm-3 col-xs-3">
                                                 <div id="btnAnterior" style="opacity:0.4;" ><i class="fa fa-arrow-circle-o-left fa-1x"> Anterior</i></div>
@@ -101,8 +101,8 @@
 
                                         <div id="principal">
                                             <h2>Materias por Aprobar</h2>
-                                            <p>Previo a continuar con el proceso de inscripción, las asignaturas que han seleccionado deben ser aprobadas por el coordinador de su carrera.</p>
-                                            <p>Una vez sean aprobadas, recibirá un correo notificándole que puede continuar con el proceso.</p>
+                                            <p>Previo a continuar con el proceso de inscripci&oacute;n, las asignaturas que ha seleccionado deben ser aprobadas por el coordinador de su carrera.</p>
+                                            <p>Una vez sean aprobadas, recibir&aacute; un correo notific&aacute;ndole que puede continuar con el proceso.</p>
                                         </div>                                        
                                     </div>
                                 </div>

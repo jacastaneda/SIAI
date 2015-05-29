@@ -263,7 +263,7 @@ if (!$asesoriaObj->isAprobado($expediente->getCarnet())) {
                                                 <a id="btnSalir" href="cerrar_sesion.php"><i class="fa fa-power-off fa-1x"> Salir</i></a>
                                             </div>
                                             <div class="col-md-3 col-sm-3 col-xs-3">
-                                                <a id="btnPensum" href="pdf/pensum.php" target="blank"><i class="fa fa-file-archive-o fa-1x"> Pensum</i></a>
+                                                <a id="btnPensum" href="pdf/pensum.php" target="_blank"><i class="fa fa-file-archive-o fa-1x"> Pensum</i></a>
                                             </div>     
                                             <div class="col-md-3 col-sm-3 col-xs-3">
                                                 <div id="btnAnterior" style="opacity:0.4;" ><i class="fa fa-arrow-circle-o-left fa-1x"> Anterior</i></div>
@@ -294,7 +294,7 @@ if (!$asesoriaObj->isAprobado($expediente->getCarnet())) {
                                                 </tr>
                                             </table>
                                         </div>
-                                        <p><a href="pdf/mandamientos.php" target="blank">Descargar Mandamientos de Pago PDF</a>
+                                        <p><a href="pdf/mandamientos.php" target="_blank">Descargar Mandamientos de Pago PDF</a>
                                         </p>
                                         <p>Podr&aacute;s imprimir tu boleta de inscripci&oacute;n hasta dentro de un m&aacute;ximo de 72 horas despu&eacute;s de realizado tu pago.</p>
                                     </div>

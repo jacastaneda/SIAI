@@ -286,7 +286,7 @@ for ($i = 0; $i <= count($clases); $i++) {
                                                 <a id="btnSalir" href="cerrar_sesion.php"><i class="fa fa-power-off fa-1x"> Salir</i></a>
                                             </div>
                                             <div class="col-md-3 col-sm-3 col-xs-3">
-                                                <a id="btnPensum" href="pdf/pensum.php" target="blank"><i class="fa fa-file-archive-o fa-1x"> Pensum</i></a>
+                                                <a id="btnPensum" href="pdf/pensum.php" target="_blank"><i class="fa fa-file-archive-o fa-1x"> Pensum</i></a>
                                             </div>     
                                             <div class="col-md-3 col-sm-3 col-xs-3">
                                                 <div id="btnAnterior" style="opacity:0.4;" ><i class="fa fa-arrow-circle-o-left fa-1x"> Anterior</i></div>
@@ -331,7 +331,7 @@ for ($i = 0; $i <= count($clases); $i++) {
                                                 </table>
                                             </div>
                                             <br />
-                                            <a href="pdf/horariopdf.php" target="blank">descargar version pdf</a>
+                                            <a href="pdf/horariopdf.php" target="_blank">descargar version pdf</a>
                                         </div>
                                     </div>
                                 </div>

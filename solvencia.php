@@ -95,7 +95,7 @@ $solventeHistorico=$_GET['sh'];
                                                 <a id="btnSalir" href="cerrar_sesion.php"><i class="fa fa-power-off fa-1x"> Salir</i></a>
                                             </div>
                                             <div class="col-md-3 col-sm-3 col-xs-3">
-                                                <a id="btnPensum" href="pdf/pensum.php" target="blank"><i class="fa fa-file-archive-o fa-1x"> Pensum</i></a>
+                                                <a id="btnPensum" href="pdf/pensum.php" target="_blank"><i class="fa fa-file-archive-o fa-1x"> Pensum</i></a>
                                             </div>     
                                             <div class="col-md-3 col-sm-3 col-xs-3">
                                                 <div id="btnAnterior" style="opacity:0.4;" ><i class="fa fa-arrow-circle-o-left fa-1x"> Anterior</i></div>
@@ -123,7 +123,7 @@ $solventeHistorico=$_GET['sh'];
                                                 <h2>Solvencia</h2>
                                                 <p>No puede iniciar el proceso de inscripción debido a que no está solvente para los ciclos anteriores, puede descargar e imprimir los mandamientos de pago en el siguiente enlace para su respectiva cancelación.</p>            	
                                                 <p>Realice los pagos correspondientes utilizando los mandamientos de pago que puede generar en el enlace  y acuda a la universidad para inscribir precensialmente.</p>
-                                                <p><a href="pdf/no_solvente.php" target="blank">Descargar Mandamientos de Pago</a></p>                                                
+                                                <p><a href="pdf/no_solvente.php" target="_blank">Descargar Mandamientos de Pago</a></p>                                                
                                                 <?php
                                             }
                                             //Insolvente de ciclos anteriores y ciclo actual
@@ -133,7 +133,7 @@ $solventeHistorico=$_GET['sh'];
                                                 <h2>Solvencia</h2>
                                                 <p>No puede iniciar el proceso de inscripción debido a que no está solvente, puede descargar e imprimir los mandamientos de pago para los ciclos anteriores en el siguiente enlace para su respectiva cancelación.</p>            	
                                                 <p><b>Realice los pagos correspondientes utilizando su talonario y los mandamientos de pago que puede generar en el enlace y acuda a la universidad para inscribir precensialmente.</b>.</p>
-                                                <p><a href="pdf/no_solvente.php" target="blank">Descargar Mandamientos de Pago</a></p>                                                
+                                                <p><a href="pdf/no_solvente.php" target="_blank">Descargar Mandamientos de Pago</a></p>                                                
                                                 <?php
                                             }                                            
                                             ?>
