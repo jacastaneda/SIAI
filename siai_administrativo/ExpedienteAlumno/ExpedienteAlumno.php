@@ -65,7 +65,7 @@ include('../menu.php');
     <div class="control-group">
       <label class="control-label" for ="PAss"> Carnet</label>
       <div class="controls">
-        <input name="txtCarnet" type="text" id="txtCarnet" readonly="readonly" placeholder="Carnet"/> <div id="msn"></div>
+        <input name="txtCarnet" type="text" id="txtCarnet"  placeholder="Carnet"/> <div id="msn"></div>
         </div>
       
       
@@ -84,7 +84,7 @@ include('../menu.php');
     <div class="control-group">
       <label class="control-label" for ="PAss"> Apellido 1</label>
       <div class="controls"><span id="sprytextfield2">
-      <input type="text" name="txtApellido1" id="txtApellido1"  placeholder="Apllido 1" onkeyup="GeneraCarnet();"/>
+              <input type="text" name="txtApellido1" id="txtApellido1"  placeholder="Apellido 1" />
       <span class="textfieldRequiredMsg">Dato Requerido.</span><span class="textfieldMinCharsMsg">No se cumple el mínimo de caracteres requerido.</span></span></div>
       
       
@@ -93,7 +93,7 @@ include('../menu.php');
     <div class="control-group">
       <label class="control-label" for ="PAss"> Apellido 2</label>
       <div class="controls">
-        <input type="text" name="txtApellido2" id="txtApellido2" placeholder="Apellido 2" onkeyup="GeneraCarnet();" />
+          <input type="text" name="txtApellido2" id="txtApellido2" placeholder="Apellido 2"/>
         </div>
       
       
@@ -102,7 +102,7 @@ include('../menu.php');
     <div class="control-group">
       <label class="control-label" for ="PAss"> Apellido de casada</label>
       <div class="controls">
-        <input type="text" name="txtApellidoCas" id="txtApellidoCas" placeholder="Apllido de casada" onkeyup="GeneraCarnet();"/>
+        <input type="text" name="txtApellidoCas" id="txtApellidoCas" placeholder="Apellido de casada" />
         </div>
       </div>
     
