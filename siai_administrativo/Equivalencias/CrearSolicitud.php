@@ -41,7 +41,7 @@ body {
 
 <div class="well"><!-- InstanceBeginEditable name="EditRegion4" -->
 <center>
-    <label for="anio_ingreso" >Seleccione el a&ntilde;o de ingreso del alumno</label>
+    <label for="anio_ingreso" ><b>Seleccione el a&ntilde;o de ingreso del alumno</b></label>
     <select name="anio_ingreso" id="anio_ingreso">
         <?php
         for($i=date('Y'); $i>=1985; $i--)
@@ -54,7 +54,8 @@ body {
         ?>
     </select>
     <br></br>
-<iframe id="framealumnos" src="DataTables/vistaExpedieteAlumno.php?anio=<?php echo date('Y');?>" height="700px" width="900px" border="0"  frameborder="0" ></iframe></center><!-- InstanceEndEditable --></div>
+<iframe id="framealumnos" src="DataTables/vistaExpedieteAlumno.php?anio=<?php echo date('Y');?>" height="700px" width="900px" border="0"  frameborder="0" ></iframe>
+</center><!-- InstanceEndEditable --></div>
 <footer> <strong>Universidad Politécnica de El Salvador <?php echo date('Y');?> </strong></footer>
 </div>
 <p>&nbsp;</p>

@@ -154,12 +154,12 @@ class SiaiUsuario{
         }
     }
     
-    //Verificar Usuarios
+    //Verificar franja de acceso para la carrera
     public function loginFranjaCarreraAlumno($codCarrera)
     {
        $fecha_actual=date('Y-m-d');
        
-       $consulta="SELECT count(*) FROM siai_franjas_inscripcion WHERE CODIGO_CAR='".$codCarrera."' AND tipo_permiso=1 AND fecha_hora_inicio <= '$fecha_actual' AND fecha_hora_fin >= '$fecha_actual';";
+       $consulta="SELECT count(*) FROM siai_franjas_inscripcion WHERE (CODIGO_CAR='".$codCarrera."' OR CODIGO_CAR='TODO') AND tipo_permiso=1 AND fecha_hora_inicio <= '$fecha_actual' AND fecha_hora_fin >= '$fecha_actual';";
 //       echo $consulta;
         if($registro=$this->conexionSiaiUsuario->consulta($consulta))
         {

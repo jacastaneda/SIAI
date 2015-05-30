@@ -46,7 +46,7 @@ $url_server='http://'.$_SERVER['SERVER_NAME'].'/siai/siai_administrativo/';
                
                 <li class="dropdown"> 
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <i class="icon-briefcase icon-white"></i> Equivalencias<b class="caret"></b>
+                    <i class="icon-refresh icon-white"></i> Equivalencias<b class="caret"></b>
                     </a>
                     
                     <ul class="dropdown-menu">
@@ -68,7 +68,7 @@ $url_server='http://'.$_SERVER['SERVER_NAME'].'/siai/siai_administrativo/';
                
                <li class="dropdown"> 
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <i class="icon-briefcase icon-white"></i> Mantenimientos<b class="caret"></b>
+                    <i class="icon-flag icon-white"></i> Mantenimientos<b class="caret"></b>
                     </a>
                     
                     <ul class="dropdown-menu">
@@ -92,7 +92,7 @@ $url_server='http://'.$_SERVER['SERVER_NAME'].'/siai/siai_administrativo/';
                <?php if($_SESSION["user"][0]["TIPO_USUAR"]==1 or $_SESSION["user"][0]["TIPO_USUAR"]==4){?>
                <li class="dropdown"> 
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <i class="icon-briefcase icon-white"></i> Pagos<b class="caret"></b>
+                    <i class="icon-check icon-white"></i> Pagos<b class="caret"></b>
                     </a>
                     
                     <ul class="dropdown-menu">
@@ -108,7 +108,7 @@ $url_server='http://'.$_SERVER['SERVER_NAME'].'/siai/siai_administrativo/';
                <?php if($_SESSION["user"][0]["TIPO_USUAR"]==1 or $_SESSION["user"][0]["TIPO_USUAR"]==2){?>
                <li class="dropdown"> 
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    <i class="icon-briefcase icon-white"></i> Validación inscripción<b class="caret"></b>
+                    <i class="icon-thumbs-up icon-white"></i> Validación inscripción<b class="caret"></b>
                     </a>
                     
                     <ul class="dropdown-menu">
@@ -123,7 +123,8 @@ $url_server='http://'.$_SERVER['SERVER_NAME'].'/siai/siai_administrativo/';
                     <i class="icon-search icon-white"></i> Consultas<b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="<?php echo $url_server;?>Reportes/VistaCuposReservados.php"><i class="icon-arrow-up"></i> Cupos reservados</a></li>  
+                        <li><a href="<?php echo $url_server;?>Reportes/VistaCuposReservados.php"><i class="icon-check"></i> Cupos reservados</a></li> 
+                        <li><a href="<?php echo $url_server;?>Reportes/VistaAlumnosInscritos.php"><i class="icon-list"></i> Alumnos inscritos</a></li> 
                     </ul> <!--FIn de dropdown-menu -->               
                </li> <!--fin del dropdown-->
                <?php }?>

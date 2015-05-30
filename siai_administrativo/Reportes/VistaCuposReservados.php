@@ -37,7 +37,7 @@ body {
     ?>
 
 <div class="container">
-	<div class=" well well-small"><!-- InstanceBeginEditable name="EditRegion3" -->Nombre de MOdulos<!-- InstanceEndEditable --></div>
+	<div class=" well well-small"><!-- InstanceBeginEditable name="EditRegion3" -->Reporte de cupos reservados<!-- InstanceEndEditable --></div>
 
 <div class="well"><!-- InstanceBeginEditable name="EditRegion4" --><center>
 <iframe src="DataTables/CuposReservados.php" height="700px" width="900px" border="0"  frameborder="0" ></iframe></center><!-- InstanceEndEditable --></div>

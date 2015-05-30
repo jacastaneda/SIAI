@@ -412,7 +412,9 @@ $franjas=$franja->getListadoFranjasCarreras();
         <div class="content-to-populate-in-modal" id="modal-content-log-5">
             <h3>Fechas para inscripcion en l&iacute;nea</h3>
             <p><img data-img-src="assets/images/other_images/appbar.alert.png" class="lazy rounded_border hover_effect pull-left">Los alumnos de su carrera no pueden iniciar su solicitud de inscripci&oacute;n en esta fecha.</p>
-            <p>Consulte las fechas en la que los alumnos de su carrera pueden iniciar solicitud de inscripci&oacute;n</p>
+            <p>Consulte las fechas en la que los alumnos de su carrera pueden iniciar solicitud de inscripci&oacute;n 
+                <a href="javascript:void(0)" onclick="populate_and_open_modal(event, 'modal-content-horarios');"><i class="glyphicon glyphicon-calendar"></i> Aqu&iacute;</a>
+            </p>       
         </div>        
         <div class="content-to-populate-in-modal" id="modal-content-sign-7">
             <h3>Activación de Usuario</h3>
