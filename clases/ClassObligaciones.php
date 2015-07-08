@@ -229,6 +229,8 @@ class Obligaciones {
     }
     
     public function isSolventeCicloActual($_carnet, $ciclo_anio_actual) {
+        return true;
+        //descomentarsolvencia
         $consulta = "SELECT count(*) as contador FROM siai.obligaciones where CARNET='" . $_carnet . "' and SALDOACTUA >0 
                     AND (CICLO = '$ciclo_anio_actual' AND CUOTA IN('0','1'));";
 //        echo $consulta;

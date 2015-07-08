@@ -21,7 +21,7 @@ function GeneraCarnet(){
 			},
 		success:function(response){//FUNCION QUE ME DEVUELVE CUANDO HAYA PROCESADO
 			//$("#msn").html(response);
-			//$("txtCarnet").val()=response;
+//			$("txtCarnet").val()=response;
 			txtCarnet.value=response;
 			},
 		error:function(){
