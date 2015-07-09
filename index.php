@@ -202,10 +202,7 @@ $franjas=$franja->getListadoFranjasCarreras();
 
                             <!-- Indicators - slide navigation -->
                             <ol class="carousel-indicators title-indicators">
-                                <li data-target="#features-carousel" data-slide-to="0" class="active">Lorem Ipsum</li>
-                                <li data-target="#features-carousel" data-slide-to="1">Suspendisse</li>
-                                <li data-target="#features-carousel" data-slide-to="2">Maecenas</li>
-                                <li data-target="#features-carousel" data-slide-to="3">Scelerisque</li>
+                                <li data-target="#features-carousel" data-slide-to="0" class="active">Video tutorial</li>
                             </ol>
 
                             <!-- Wrapper for slides -->
@@ -213,67 +210,21 @@ $franjas=$franja->getListadoFranjasCarreras();
 
                                 <div class="item active">
                                     <div class="carousel-text-content">
-                                        <img src="assets/images/other_images/transp-image1.png" class="icon" alt="Lorem Ipsum">
-                                        <h2 class="title">Lorem Ipsum</h2>
-                                        <p>Suspendisse molestie lorem odio, sit amet. Duis dictum lorem metus, vitae dapibus risus imperdiet nec. Suspendisse molestie lorem odio.</p>
-                                        <p><a href="" onclick="populate_and_open_modal(event, 'modal-content-2');" class="btn btn-outline-inverse btn-sm">read more</a></p>
+                                        <!--<img src="assets/images/other_images/transp-image1.png" class="icon" alt="Lorem Ipsum">-->
+                                        <h2 class="title"></h2>
+                                        <p>Este video tutorial le explicar&aacute; c&oacute;mo utilizar el SIAI 2.0 para realizar su proceso inscripci&oacute;n de asignaturas en linea.</p>
+                                        <p><a href="" onclick="populate_and_open_modal(event, 'modal-content-2');" class="btn btn-outline-inverse btn-sm">Ver video</a></p>
 
                                         <div class="content-to-populate-in-modal" id="modal-content-2">
-                                            <h1>Lorem Ipsum</h1>
-                                            <p><img data-img-src="assets/images/other_images/transp-image1.png" class="lazy rounded_border hover_effect pull-left" alt="Lorem Ipsum">Etiam at ligula sit amet arcu laoreet consequat. Duis dictum lorem metus, vitae dapibus risus imperdiet nec. <a href="#">Suspendisse molestie lorem odio</a>, sit amet. </p>
-                                            <p>Laoreet consequat. Duis dictum lorem metus, vitae dapibus risus imperdiet nec. Suspendisse molestie lorem odio, sit amet.</p>
-                                            <p>Suspendisse molestie lorem odio, sit amet. Duis dictum lorem metus, vitae dapibus risus imperdiet nec. Suspendisse molestie lorem odio test.</p>
+                                            <video width="100%" height="100%" controls>
+                                             <source src="assets/siaiAlumnos.mp4" type="video/mp4">
+                                             <!--<source src="movie.ogg" type="video/ogg">-->
+                                             Your browser does not support the video tag.
+                                           </video> 
                                         </div><!-- #modal-content-2 -->
                                     </div>
                                 </div><!-- .item -->
 
-                                <div class="item">
-                                    <div class="carousel-text-content">
-                                        <img src="assets/images/other_images/transp-image6.png" class="icon" alt="Lorem Ipsum">
-                                        <h2 class="title">Suspendisse molestie</h2>
-                                        <p>Etiam at ligula sit amet arcu laoreet consequat. Duis dictum lorem metus, vitae dapibus risus imperdiet nec. Duis dictum lorem metus.</p>
-                                        <p><a href="" onclick="populate_and_open_modal(event, 'modal-content-3');" class="btn btn-outline-inverse btn-sm">read more</a></p>
-
-                                        <div class="content-to-populate-in-modal" id="modal-content-3">
-                                            <h1>Suspendisse molestie</h1>
-                                            <p><img data-img-src="assets/images/other_images/transp-image6.png" class="lazy rounded_border hover_effect pull-left" alt="Lorem Ipsum">Etiam at ligula sit amet arcu laoreet consequat. Duis dictum lorem metus, vitae dapibus risus imperdiet nec. <a href="#">Suspendisse molestie lorem odio</a>, sit amet. </p>
-                                            <p>Laoreet consequat. Duis dictum lorem metus, vitae dapibus risus imperdiet nec. Suspendisse molestie lorem odio, sit amet.</p>
-                                            <p>Suspendisse molestie lorem odio, sit amet. Duis dictum lorem metus, vitae dapibus risus imperdiet nec. Suspendisse molestie lorem odio test.</p>
-                                        </div><!-- #modal-content-3 -->
-                                    </div>
-                                </div><!-- .item -->
-
-                                <div class="item">
-                                    <div class="carousel-text-content">
-                                        <img src="assets/images/other_images/transp-image7.png" class="icon" alt="Lorem Ipsum">
-                                        <h2 class="title">Maecenas id dolor</h2>
-                                        <p>Fusce erat augue, fermentum sit amet congue a, ullamcorper ac enim. Maecenas id dolor imperdiet, mollis felis ut, pellentesque ante. Sed id congue arcu. Nulla eget commodo sem. Suspendisse suscipit, sem ac.</p>
-                                        <p><a href="" onclick="populate_and_open_modal(event, 'modal-content-4');" class="btn btn-outline-inverse btn-sm">read more</a></p>
-
-                                        <div class="content-to-populate-in-modal" id="modal-content-4">
-                                            <h1>Maecenas id dolor</h1>
-                                            <p><img data-img-src="assets/images/other_images/transp-image7.png" class="lazy rounded_border hover_effect pull-left" alt="Lorem Ipsum">Etiam at ligula sit amet arcu laoreet consequat. Duis dictum lorem metus, vitae dapibus risus imperdiet nec. <a href="#">Suspendisse molestie lorem odio</a>, sit amet. </p>
-                                            <p>Laoreet consequat. Duis dictum lorem metus, vitae dapibus risus imperdiet nec. Suspendisse molestie lorem odio, sit amet.</p>
-                                            <p>Suspendisse molestie lorem odio, sit amet. Duis dictum lorem metus, vitae dapibus risus imperdiet nec. Suspendisse molestie lorem odio test.</p>
-                                        </div><!-- #modal-content-4 -->
-                                    </div>
-                                </div><!-- .item -->
-
-                                <div class="item">
-                                    <div class="carousel-text-content">
-                                        <img src="assets/images/other_images/transp-image4.png" class="icon" alt="Lorem Ipsum">
-                                        <h2 class="title">Sed scelerisque</h2>
-                                        <p>Aenean a est fringilla, malesuada eros vel, condimentum augue. Sed lorem sapien, vestibulum quis nisl volutpat, fermentum adipiscing massa. Cras ac faucibus nisl. Proin ac convallis sapien. </p>
-                                        <p><a href="" onclick="populate_and_open_modal(event, 'modal-content-5');" class="btn btn-outline-inverse btn-sm">read more</a></p>
-
-                                        <div class="content-to-populate-in-modal" id="modal-content-5">
-                                            <h1>Sed scelerisque</h1>
-                                            <p><img data-img-src="assets/images/other_images/transp-image4.png" class="lazy rounded_border hover_effect pull-left" alt="Lorem Ipsum">Etiam at ligula sit amet arcu laoreet consequat. Duis dictum lorem metus, vitae dapibus risus imperdiet nec. <a href="#">Suspendisse molestie lorem odio</a>, sit amet. </p>
-                                            <p>Laoreet consequat. Duis dictum lorem metus, vitae dapibus risus imperdiet nec. Suspendisse molestie lorem odio, sit amet.</p>
-                                            <p>Suspendisse molestie lorem odio, sit amet. Duis dictum lorem metus, vitae dapibus risus imperdiet nec. Suspendisse molestie lorem odio test.</p>
-                                        </div><!-- #modal-content-5 -->
-                                    </div>
-                                </div><!-- .item -->
 
                             </div><!-- .carousel-inner -->
                             
@@ -313,8 +264,6 @@ $franjas=$franja->getListadoFranjasCarreras();
                             </div>
                             
                             <!-- Controls -->
-                            <a class="left carousel-control" href="#features-carousel" data-slide="prev"></a>
-                            <a class="right carousel-control" href="#features-carousel" data-slide="next"></a>
 
                         </div><!-- #about-carousel -->
 
