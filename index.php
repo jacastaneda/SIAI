@@ -4,9 +4,16 @@ if (isset($_SESSION['siai']['usuario']) && isset($_SESSION['siai']['expediente']
     header('Location: irPaso.php');
 }
 require_once("clases/ClassConexion.php");
+include_once("clases/ClassControl.php");
 include_once("clases/ClassFranjas.php");
+$control= new Control();
+$control->setControlPorLlave('ANO_C');
+$anio=$control->getConsecutiv();
+$control->setControlPorLlave('CICLOACT');
+$ciclo_actual=$control->getConsecutiv();
+
 $franja = new Franjas();
-$franjas=$franja->getListadoFranjasCarreras();
+$franjas=$franja->getListadoFranjasCarreras($anio,$ciclo_actual);
 //print_r($franjas);
 ?>
 <!DOCTYPE html>

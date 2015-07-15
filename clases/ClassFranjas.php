@@ -130,10 +130,12 @@ class Franjas{
           return $this->conexionControl->lista("fecha_hora_inicio", "ASC");
      }
      
-     public function getListadoFranjasCarreras()
+     public function getListadoFranjasCarreras($anio,$ciclo_actual)
      {
         //Creando cadena de la consulta Select
-        $query="SELECT * FROM siai_franjas_inscripcion AS f JOIN carrera AS c ON f.CODIGO_CAR=c.CODIGO_CAR WHERE estado='1'";
+        $query="SELECT * FROM siai_franjas_inscripcion AS f JOIN carrera AS c ON f.CODIGO_CAR=c.CODIGO_CAR WHERE estado='1'
+                AND ciclo=$ciclo_actual AND anio=$anio";
+//        echo $query;
         $resultado=$this->conexionControl->consulta($query);
         return $resultado;			//Creando cadena de la consulta Select
      }     

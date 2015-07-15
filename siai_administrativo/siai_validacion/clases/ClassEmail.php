@@ -10,17 +10,28 @@ class Email
 	
 	public function __construct()
     {
-		$this->phpmailer=new PHPMailer();
+//		$this->phpmailer=new PHPMailer();
+//		$this->phpmailer->IsSMTP(); 
+//                $this->phpmailer->CharSet = 'UTF-8';
+//		$this->phpmailer->Host="mail.politecnica.edu.sv";
+//		$this->phpmailer->SMTPDebug  = false;  
+//		$this->phpmailer->SMTPAuth   = true;
+//		$this->phpmailer->Host="mail.politecnica.edu.sv";
+//		$this->phpmailer->Port       = 49; 
+//		$this->phpmailer->Username   = "siai@politecnica.edu.sv";
+//		$this->phpmailer->Password   = "Clave2013"; 
+//		$this->phpmailer->SetFrom('siai@politecnica.edu.sv', 'SIAI-POLITECNICA');
+            
+                $this->phpmailer=new PHPMailer();
 		$this->phpmailer->IsSMTP(); 
                 $this->phpmailer->CharSet = 'UTF-8';
-		$this->phpmailer->Host="mail.politecnica.edu.sv";
+		$this->phpmailer->Host="ssl://smtp.googlemail.com";
 		$this->phpmailer->SMTPDebug  = false;  
 		$this->phpmailer->SMTPAuth   = true;
-		$this->phpmailer->Host="mail.politecnica.edu.sv";
-		$this->phpmailer->Port       = 49; 
-		$this->phpmailer->Username   = "siai@politecnica.edu.sv";
-		$this->phpmailer->Password   = "Clave2013"; 
-		$this->phpmailer->SetFrom('siai@politecnica.edu.sv', 'SIAI-POLITECNICA');
+		$this->phpmailer->Port       = 465; 
+		$this->phpmailer->Username   = "siai@upes.edu.sv";
+		$this->phpmailer->Password   = "Envi@2015"; 
+		$this->phpmailer->SetFrom('siai@upes.edu.sv', 'SIAI-POLITECNICA');            
 	}
 	
 	public function setAdress($adress)
