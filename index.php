@@ -1,4 +1,5 @@
 <?php
+//hola mundo
 session_start();
 if (isset($_SESSION['siai']['usuario']) && isset($_SESSION['siai']['expediente']) && isset($_SESSION['siai']['control'])) {
     header('Location: irPaso.php');
