@@ -54,7 +54,7 @@ body {
         ?>
     </select>
     <br></br>
-<iframe id="framealumnos" src="DataTables/vistaExpedieteAlumno.php?anio=<?php echo date('Y');?>" height="700px" width="900px" border="0"  frameborder="0" ></iframe>
+<iframe id="framealumnos" src="../Equivalencias/DataTables/vistaExpedieteAlumno.php?anio=<?php echo date('Y');?>&SolvTemp=1" height="700px" width="900px" border="0"  frameborder="0" ></iframe>
 </center><!-- InstanceEndEditable --></div>
 <footer> <strong>Universidad Politécnica de El Salvador <?php echo date('Y');?> </strong></footer>
 </div>
@@ -64,6 +64,6 @@ body {
 <!-- InstanceEnd --></html>
 <script>
     $('#anio_ingreso').on('change', function(){
-        $('#framealumnos').attr('src','DataTables/vistaExpedieteAlumno.php?anio='+$(this).val());
+        $('#framealumnos').attr('src','../Equivalencias/DataTables/vistaExpedieteAlumno.php?anio='+$(this).val()+'&SolvTemp=1');
     })
 </script>    

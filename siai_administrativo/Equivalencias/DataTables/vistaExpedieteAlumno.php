@@ -1,7 +1,8 @@
 <?php
     require_once 'funciones/conexiones.php';
     $anio=(isset($_GET['anio'])) ? $_GET['anio'] : date('Y');
-//    echo $anio;
+    $SolvTemp=(isset($_GET['SolvTemp'])) ? $_GET['SolvTemp'] : '0';
+//    echo $SolvTemp;
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
@@ -80,8 +81,59 @@
                     })
                     }
                   })
+                  
+                  $('.link-solvencia').on('click',function(){
+//                      alert($(this).data('carnet'));
+                      var carnet = $(this).data('carnet');
+                      var datos={carnet : carnet};
+                      $("#loader").show();
+                        $.ajax({
+                        url: "verificarSolvenciaTemporal.php",
+                        type: "POST",
+                        data: datos,
+                        success:
+                            function(r)
+                            {
+                                if(r > 0)
+                                {
+                                    if(confirm('El alumno con carnet: '+carnet+' ya tiene una solvencia temporal para el ciclo actual, desea quitarsela ?'))
+                                    {
+//                                        alert('quitar');
+                                        trans_solvencia(carnet, 'del');
+                                    }
+                                }
+                                else
+                                {
+                                    if(confirm('El alumno con carnet: '+carnet+' no tiene una solvencia temporal para el ciclo actual, desea otorgarsela ?'))
+                                    {
+//                                        alert('dar');
+                                        trans_solvencia(carnet, 'ins');
+                                    }                                    
+                                }
+                                $("#loader").hide();
+//                                location.reload(true);
+                            }
+                        });                  
+                  });
                });
          
+         function trans_solvencia(carnet, trans)
+         {
+             var datos={carnet : carnet, trans : trans};
+             
+             $("#loader").show();
+              $.ajax({
+              url: "transSolvenciaTemporal.php",
+              type: "POST",
+              data: datos,
+              success:
+                  function(r)
+                  {
+                      alert(r);
+                      $("#loader").hide();
+                  }
+              })           
+         }
 		</script>
 	</head>
 	<body id="dt_example" class="ex_highlight_row">
@@ -127,10 +179,24 @@
 			<td><?php echo $datos['APELLCASAD']; ?></td>
                         
                         <td>
-                            <form action="SolicitudEquivalencia.php" method="post">
-                                <input name="CARNET" id="CARNET" type="hidden" value="<?php echo $datos['CARNET']; ?>">
-                                <input value="Solicitud" type="submit">
-                            </form>
+                            <?php
+                            if($SolvTemp == '1')
+                            {
+                                ?>
+                                <a href="javascript:void(0)" class="link-solvencia" data-carnet="<?php echo $datos['CARNET']; ?>">Solvencia temporal</a>                          
+                                <?php
+                            }
+                            else
+                            {
+                                ?>
+                                <form action="SolicitudEquivalencia.php" method="post">
+                                    <input name="CARNET" id="CARNET" type="hidden" value="<?php echo $datos['CARNET']; ?>">
+                                    <input value="Solicitud" type="submit">
+                                </form>                            
+                                <?php
+                            }    
+                            ?>
+
                         </td>
 		</tr>
                 <?php
