@@ -60,6 +60,8 @@ if (isset($_SESSION['siai']['usuario']) && isset($_SESSION['siai']['expediente']
                 $cta = 0;
                 break;
         }
+        
+        $descripcion.=', CICLO: '.$obligacion['CICLO'];
         $cicloarray = explode('/', $obligacion['CICLO']);
         $ciclo = $cicloarray[0];
         $anyo = $cicloarray[1];
