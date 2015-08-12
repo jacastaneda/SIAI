@@ -213,8 +213,14 @@ class Obligaciones {
         return $this->conexionObligaciones->actualizarRegistro($this->tALONARIO, $atributos);
     }
 
-    public function isSolvente($_carnet, $ciclo_anio_actual) {
-        $consulta = "SELECT count(*) as contador FROM siai.obligaciones where CARNET='" . $_carnet . "' and SALDOACTUA >0 
+    public function isSolvente($carnet, $ciclo_anio_actual) {
+        
+        if($this->isSolventeTemporal($carnet, $ciclo_anio_actual))
+        {
+            return true;
+        }
+        
+        $consulta = "SELECT count(*) as contador FROM siai.obligaciones where CARNET='" . $carnet . "' and SALDOACTUA >0 
                     AND (CICLO <> '$ciclo_anio_actual' OR (CICLO = '$ciclo_anio_actual' AND CUOTA IN('0','1')));";
 //        echo $consulta;
         if ($registro = $this->conexionObligaciones->consulta($consulta)) {
@@ -227,6 +233,20 @@ class Obligaciones {
             return false;
         }
     }
+    
+    public function isSolventeTemporal($carnet, $ciclo_anio_actual) {
+        $consulta = "SELECT count(*) as contador FROM siai.proc_solvencia_temporal where CARNET='$carnet' AND CICLO = '$ciclo_anio_actual';";
+//        echo $consulta;
+        if ($registro = $this->conexionObligaciones->consulta($consulta)) {
+            if ($registro[0]['contador'] > 0) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }    
     
     public function isSolventeCicloActual($_carnet, $ciclo_anio_actual) {
 //        return true;

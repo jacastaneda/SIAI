@@ -156,6 +156,15 @@
 	</thead>
 	<tbody> 
             <?php
+            if($SolvTemp == '1')
+            {
+                $where_ti=" 1=1 ";
+            }
+            else
+            {
+                $where_ti=" ea.tipoingres= 'EQ' ";
+            }
+            
             $con = Conectar();
             $sql = "select DATE_FORMAT(ea.FECHA_INGR,'%d/%m/%Y') as FECHA_INGR,
                     ea.CARNET,
@@ -164,7 +173,7 @@
                     ea.APELLIDO2,
                     ea.APELLCASAD
                     from expedientealumno ea
-                    where ea.tipoingres= 'EQ'
+                    where $where_ti
                     AND EXTRACT(YEAR FROM ea.FECHA_INGR) ='$anio'
                     order by ea.FECHA_INGR, ea.carnet";
             $q = mysql_query($sql, $con) or die ("Problemas al ejecutar la consulta");                
