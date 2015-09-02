@@ -126,6 +126,7 @@ $url_server='http://'.$_SERVER['SERVER_NAME'].'/siai/siai_administrativo/';
                     <ul class="dropdown-menu">
                         <li><a href="<?php echo $url_server;?>Reportes/VistaCuposReservados.php"><i class="icon-check"></i> Cupos reservados</a></li> 
                         <li><a href="<?php echo $url_server;?>Reportes/VistaAlumnosInscritos.php"><i class="icon-list"></i> Alumnos inscritos</a></li> 
+                        <li><a href="<?php echo $url_server;?>Reportes/VistaNotasH.php"><i class="icon-list"></i> Notas H</a></li> 
                     </ul> <!--FIn de dropdown-menu -->               
                </li> <!--fin del dropdown-->
                <?php }?>

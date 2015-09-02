@@ -99,7 +99,7 @@ class Asesoria {
         $this->ciclo = $CICLO;
     }
 
-    public function setCicloSiai($CICLO_SIAI) {
+    public function setCicloSiai($CICLO_SIAI=FALSE) {
         $control = new Control();
         $control->setControlPorLlave('ANO_C');
         $anio = $control->getConsecutiv();

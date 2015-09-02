@@ -99,6 +99,7 @@ if($contador==0)
 			$asesoria->setArancel($seleccion[$iAsesoria]['asignatura']->getArancel());
 			$asesoria->setSeccion($seleccion[$iAsesoria]['seccion']->getSeccion());
 			$asesoria->setMatricula($seleccion[$contador]['inscripciones']+1);
+                        $asesoria->setCicloSiai();
 			if($asesoria->transaccionAsesoria()==false)
 			{
 				$banderaAsesoria=false;
