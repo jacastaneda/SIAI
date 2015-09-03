@@ -13,7 +13,7 @@
     {
         // output headers so that the file is downloaded rather than displayed
         header('Content-Type: text/csv; charset=utf-8');
-        header('Content-Disposition: attachment; filename=data.csv');
+        header('Content-Disposition: attachment; filename=notash.csv');
 
         // create a file pointer connected to the output stream
         $output = fopen('php://output', 'w');
@@ -204,6 +204,8 @@
             <?php
             $url_server='http://'.$_SERVER['SERVER_NAME'].'/siai/siai_administrativo/';
             ?>
-        <a href="<?php echo $url_server;?>Reportes/DataTables/NotasH.php?export=1&carrera=<?php echo $carrera;?>" target="_blank">Exportar</a>
+        <center>
+            <a style="font-size: larger" href="<?php echo $url_server;?>Reportes/DataTables/NotasH.php?export=1&carrera=<?php echo $carrera;?>" target="_blank">Exportar</a>
+        </center>
 </body>
 </html>
